@@ -1,0 +1,40 @@
+$grid-gutter-width: 24px;
+
+
+@each $key, $breakpoint in $breakpoints {
+  $min: map-get($breakpoint, "min");
+  $max: map-get($breakpoint, "max");
+  $gutter: map-get($breakpoint, "gutter");
+
+  @media (min-width: $min) and (max-width: $max - 1px) {
+    $half-gutter: $gutter * (1*0.5);
+
+    .row:not(.no-gutters) {
+      margin-left: $half-gutter;
+      margin-right: $half-gutter;
+    }
+
+    .row:not(.no-gutters) > .col,
+    .row:not(.no-gutters) > [class*="col-"] {
+      padding-left: $half-gutter;
+      padding-right: $half-gutter;
+    }
+  }
+}
+
+
+/*
+[class^='col'].custom-gutter,
+[class*=' col'].custom-gutter {
+  @each $key, $breakpoint in $breakpoints {
+    $min: map-get($breakpoint, "min");
+    $max: map-get($breakpoint, "max");
+    $gutter: map-get($breakpoint, "gutter");
+
+    @media (min-width: $min) and (max-width: $max - 1px) {
+      padding-left: $gutter;
+      padding-right: $gutter;
+    }
+  }
+}
+*/

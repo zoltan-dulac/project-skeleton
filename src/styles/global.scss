@@ -1,0 +1,106 @@
+@import 'config';
+@import 'shared/reset';
+@import 'shared/fonts';
+@import 'shared/grid';
+@import 'shared/a11y';
+@import 'shared/_cta';
+
+// Components that are on every page
+// @import 'components/Footer/style.scss';
+
+// Bootstrap Required
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+
+// Optional
+// @import "../../node_modules/bootstrap/scss/reboot";
+// @import "../../node_modules/bootstrap/scss/type";
+// @import "../../node_modules/bootstrap/scss/images";
+// @import "../../node_modules/bootstrap/scss/code";
+@import "../../node_modules/bootstrap/scss/grid";
+@import "../../node_modules/bootstrap/scss/dropdown";
+
+
+:root { 
+    /*
+     * NOTE: Base font size is 16px, the broweser default.  Do *not* change this, or
+     * add a font-size to :root, html or body, since it can affect a browser's 
+     * built in text-zoom functionality and make the site inaccessible
+     * by violating WCAG AA 1.4.4.
+     *
+     * https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html
+     */
+    --responsive-text-zoom-font-c-rem: #{$responsive-text-zoom-font-c-rem};
+    --responsive-font-c: 0;
+}
+
+html, body {
+    margin:0;
+    padding:0;
+    background: $color-greyscale-white;
+    //overflow: hidden;
+}
+
+
+* {
+    text-size-adjust: none;
+    font-size: 1rem;
+}
+
+body {
+    /*
+     * This tells Safari to use the OS's base font and
+     * the size set in the iOS Accessibility settings.
+     */
+    font: -apple-system-body;
+
+    /*
+     * Put the visual base font here.  The font
+     * size will still be grabbed by the iOS Accessibility
+     * settings.
+     */
+    font-family: "Inter", serif;
+}
+
+main {
+    width: 100%;
+    max-width: $max-width;
+    margin: 0 auto;
+}
+
+/* uncomment everything below to test breakpoints */
+body:before {
+    content: 'XXX';
+    position: fixed;
+    z-index: 1;
+    right: 0;
+    top: 0;
+    font-size: 20px;
+    padding: 5px;
+    background: red;
+    color: white;
+
+    @include breakpoint-screen-up("xs") {
+        content: "xs";
+    }
+
+    @include breakpoint-screen-up("sm") {
+        content: "sm";
+    }
+    @include breakpoint-screen-up("md") {
+        content: "md";
+    }
+
+    @include breakpoint-screen-up("lg") {
+        content: "lg";
+    }
+
+    @include breakpoint-screen-up("xl") {
+        content: "xl";
+    }
+}
+
+label {
+    cursor: pointer;
+}

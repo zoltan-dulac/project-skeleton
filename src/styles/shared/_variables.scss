@@ -1,0 +1,294 @@
+// colours
+@use "sass:math";
+
+$color-blue-dark: #00113A;
+$color-red-base: #EB0028;
+$color-blue-base: #001D60;
+$color-greyscale-dark: #12151E;
+$color-greyscale-base: #5E6473;
+$color-greyscale-light: #D7DCE7;
+$color-greyscale-xlight: #F4F6FE;
+$color-blue-light: #004B8D;
+$color-greyscale-white: #FFFFFF;
+
+// gradients
+$gradient-blue: linear-gradient(104.92deg, #001545 10.02%, #00257C 101.88%);
+
+// space scale
+$space-XXXXL: 120px;
+$space-XXXL: 96px;
+$space-XXL: 72px;
+$space-XL: 48px;
+$space-L: 32px;
+$space-M: 24px;
+$space-S: 16px;
+$space-XS: 12px;
+$space-XXS: 8px;
+$space-XXXS: 4px;
+
+$max-width: 1400px;
+
+@mixin default-focus {
+  outline: 2px solid rgba(94,158,214,.7);
+}
+
+
+// headings
+@mixin typography-heading-display {
+  @include responsive-font-size('font-size', 88px, 88px, 88px, 88px);
+
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  line-height: math.div(96, 88) //96px;
+}
+
+@mixin typography-heading-XXXL {
+  @include responsive-font-size('font-size', 48px, 48px, 48px, 48px);
+
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 60/48; //60px;
+}
+
+@mixin typography-heading-XXL {
+  @include responsive-font-size('font-size', 40px, 40px, 40px, 40px);
+
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  line-height: (48*0.025) //48px;
+}
+
+@mixin typography-heading-XL {
+  @include responsive-font-size('font-size', 36px, 36px, 36px, 36px);
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 40px;
+}
+
+@mixin typography-heading-L {
+  @include responsive-font-size('font-size', 32px, 32px, 32px, 32px);
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 48px;
+}
+
+@mixin typography-heading-M {
+  @include responsive-font-size('font-size', 28px, 28px, 28px, 28px);
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  line-height: math.div(34, 28) //34px;
+}
+
+@mixin typography-heading-S {
+  @include responsive-font-size('font-size', 24px, 24px, 24px, 24px);
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  line-height: math.div(32, 24) //32px;
+}
+
+@mixin typography-heading-XS {
+  @include responsive-font-size('font-size', 20px, 20px, 20px, 20px);
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  line-height: (28 * 0.05) //28px;
+}
+
+@mixin typography-body-L {
+  @include responsive-font-size('font-size', 16px, 16px, 16px, 16px);
+
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  line-height: math.div(24, 16); //24px;
+}
+
+@mixin typography-body {
+  @include responsive-font-size('font-size', 14px, 14px, 14px, 14px);
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  line-height: math.div(24, 14); //24px;
+}
+
+@mixin typography-body-S {
+  @include responsive-font-size('font-size', 12px, 12px, 12px, 12px);
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  line-height: math.div(20, 12); // 20px;
+}
+
+@mixin typography-button {
+  @include responsive-font-size('font-size', 16px, 16px, 16px, 16px);
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  line-height: math.div(24, 16); //24px;
+  color: $color-greyscale-white;
+}
+
+@mixin typography-eyebrow-L {
+  @include responsive-font-size('font-size', 24px, 24px, 24px, 24px);
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 1; //24px;
+}
+
+@mixin typography-eyebrow {
+  @include responsive-font-size('font-size', 16px, 16px, 16px, 16px);
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  line-height: math.div(24, 16); //24px;
+  text-transform: uppercase;
+}
+
+@mixin typography-small {
+  @include responsive-font-size('font-size', 14px, 14px, 14px, 14px);
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  line-height: math.div(24, 14); //24px;
+}
+
+// The max values needs to be in sync with the values in src/js/constants/index.js
+// The names of the breakpoints are designed to match up with bootstrap.
+/* $breakpoints: (
+  xs: (
+    min: 0px,
+    average: 375px,
+    max: 599px,
+    columns: 12,
+    gutter: 16px,
+    margin: 16px
+  ),
+  sm: (
+    min: 600px,
+    average: 768px,
+    max: 959px,
+    columns: 12,
+    gutter: 16px,
+    margin: 24px
+
+  ),
+  md: (
+    min: 960px,
+    average: 1024px,
+    max: 1199px,
+    columns: 12,
+    gutter: 24px,
+    margin: 24px
+
+  ),
+  lg: (
+    min: 1200px,
+    average: 1280px,
+    max: 1439px,
+    columns: 12 ,
+    gutter: 48px,
+    margin: 28px
+  ),
+  xl: (
+    min: 1400px,
+    average: 1440px,
+    max: 1000000000px,
+    columns: 12,
+    gutter: 48px,
+    margin: 28px,
+    max-width: 1360px,
+  )
+); */
+
+$breakpoints: (
+  xs: (
+    min: 0px,
+    average: 375px,
+    max: 479px,
+    columns: 12,
+    gutter: 16px,
+    margin: 8px
+  ),
+  sm: (
+    min: 480px,
+    average: 480px,
+    max: 639px,
+    columns: 12,
+    gutter: 8px,
+    margin: 16px
+  ),
+  md: (
+    min: 640px,
+    average: 768px,
+    max: 1023px,
+    columns: 12,
+    gutter: 24px,
+    margin: 24px
+
+  ),
+  lg: (
+    min: 1024px,
+    average: 1024px,
+    max: 1365px,
+    columns: 12,
+    gutter: 48px,
+    margin: 24px
+  ),
+  xl: (
+    min: 1366px,
+    average: 1366px,
+    max: 1000000000px,
+    columns: 12,
+    gutter: 48px,
+    margin: 24px,
+    max-width: 1919px,
+  )
+);
+
+@each $key, $breakpoint in $breakpoints {
+  $min: map-get($breakpoint, "min");
+  $max: map-get($breakpoint, "max");
+  $average: map-get($breakpoint, "average");
+  $length: $max - $min;
+  $max-length-from-average: max($average - $min, $max - $average);
+  $breakpoint: map-merge($breakpoint, ("percentage": math.div($max-length-from-average, $length)));
+  $breakpoints: map-merge($breakpoints, ($key: $breakpoint));
+
+  // populates bootstrap with the right breakpoints.
+  @if ($key == 'sm') {
+    $screen-sm-min: $min;
+  } @else if ($key == 'md') {
+    $screen-md-min: $min;
+  } @else if ($key == 'lg') {
+    $screen-lg-min: $min;
+  } @else if ($key == 'xl') {
+    $screen-xl-min: $min;
+  }
+}
+
+@function breakpoint-screen($size) {
+  @return (map-get(map-get($breakpoint, $size), 'min'), map-get(map-get($breakpoint, $size), 'max')); 
+}
+
+$grid-breakpoints: (
+  xs: map-get(map-get($breakpoints, "xs"), "min"),
+  sm: map-get(map-get($breakpoints, "sm"), "min"),
+  md: map-get(map-get($breakpoints, "md"), "min"),
+  lg: map-get(map-get($breakpoints, "lg"), "min"),
+  xl: map-get(map-get($breakpoints, "xl"), "min")
+);
+
+/*
+@include make-xs-column(12);
+@include make-md-column(8);
+@include make-xs-column-push(0);
+@include make-xs-column-push(2);
+*/

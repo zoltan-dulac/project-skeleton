@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Remember ... you must not have any spaces between the tag and the <![CDATA[
+-->
+<config>
+  <componentDir>src/js/components/@JS_CLASSNAME@</componentDir>
+  <js><![CDATA[
+import PropTypes from 'prop-types';
+import './style.scss';
+
+class @JS_CLASSNAME@ {
+  constructor(element, props) {
+    this.props = props;
+    this.element = element;
+    this.className = '@CSS_CLASSNAME@';
+
+    this.cacheDomElements(element);
+    this.bindEvents();
+  }
+
+  cacheDomElements(element) {
+    // put all DOM caching properties here.
+  }
+
+  bindEvents() {
+    // all eventhandlers should be here.
+  }
+}
+
+@JS_CLASSNAME@.propTypes = {
+};
+
+export default @JS_CLASSNAME@;
+]]></js>
+  <scss><![CDATA[
+@import 'config';
+
+.@CSS_CLASSNAME@ {
+}
+]]></scss>
+  <loader><![CDATA[
+/* eslint-disable no-console */
+
+
+const @JS_CLASSNAME@Loader = (element, props) => {
+  return new Promise((resolve, reject) =>
+    require.ensure([], (require) => {
+      const Component = require('./index').default;
+      if (typeof element !== 'undefined' && typeof props !== 'undefined') {
+        if (!element.getAttribute('data-initialized')) {
+          try {
+            const component = new Component(element, props);
+            element.setAttribute('data-initialized', 'true');
+            resolve(component);
+          } catch (e) {
+            reject(e);
+          }
+        } else {
+          resolve();
+        }
+      } else {
+        resolve(Component);
+      }
+    }, '@JS_CLASSNAME@')
+  ).catch((err) => {
+    console.log(err); // eslint-disable-line
+  });
+};
+
+export default @JS_CLASSNAME@Loader;
+]]></loader>
+</config>

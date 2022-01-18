@@ -1,0 +1,199 @@
+@use "sass:math";
+
+$root-font-size: 16px;
+$responsive-text-zoom-font-c: 8px;
+
+
+//Misc
+@function px-to-rem($value-list) {
+	$rems: ();
+	
+	@each $value in $value-list {
+		$rems: append($rems, if($value != 0, (math.div($value, $root-font-size) + rem), 0));
+	}
+	
+	@return $rems;
+}
+
+$responsive-text-zoom-font-c-rem: px-to-rem($responsive-text-zoom-font-c);
+
+@function strip-unit($value) {
+  @return math.div($value, $value * 0 + 1);
+}
+
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+      font-size: $min-font-size;
+      @media screen and (min-width: $min-vw) {
+        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+      }
+      @media screen and (min-width: $max-vw) {
+        font-size: $max-font-size;
+      }
+    }
+  }
+}
+
+@function px-to-vw($value-list, $breakpoint-label) {
+	$vws: ();
+	
+	@each $value in $value-list {
+		$vws: append($vws, if($value != 0, px-to-vw-helper($value, $breakpoint-label), 0));
+	}
+	
+	@return $vws;
+}
+
+@function px-to-vw-helper($px, $breakpoint-label) {
+	$breakpoint: map-get($breakpoints, $breakpoint-label);
+	$vw: map-get($breakpoint, 'average');
+	
+	//$r: (100 * ($px - $responsive-text-zoom-font-c) / $vw) * 1vw;
+	//@return calc(#{$r} + var(--responsive-font-c));
+	$r: math.div(100 * ($px), $vw) * 1vw;
+	@return $r;
+}
+
+@function get-max-values($value-list) {
+	$rems: ();
+	
+	@each $value in $value-list {
+		$rems: append($rems, if($value != 0, get-max-values-helper($value), 0));
+	}
+	
+	@return $rems;
+}
+
+@function get-max-values-helper($vw) {
+	$r: $max-width * strip-unit($vw * 0.01);
+
+	@return $r;
+}
+
+@mixin responsive-font-size($attr, $xs, $s, $m, $l, $doZoom: false) {
+  $XS: px-to-vw($xs, "xs");
+  $SM: px-to-vw($s, "sm");
+  $MD: px-to-vw($m, "md");
+  $LG: px-to-vw($l, "lg");
+
+  $doZoom: $doZoom or ($attr == "font-size");
+
+  @include breakpoint-screen-up("xs") {
+    #{$attr}: $XS;
+
+    @if ($doZoom) {
+      .has-zoomed-text & {
+        #{$attr}: calc(#{$XS} + #{$responsive-text-zoom-font-c-rem});
+      }
+    }
+  }
+
+  @include breakpoint-screen-up("sm") {
+    #{$attr}: $SM;
+
+    @if ($doZoom) {
+      .has-zoomed-text & {
+        #{$attr}: calc(#{$SM} + #{$responsive-text-zoom-font-c-rem});
+      }
+    }
+  }
+
+  @include breakpoint-screen-up("md") {
+    #{$attr}: $MD;
+
+    @if ($doZoom) {
+      .has-zoomed-text & {
+        #{$attr}: calc(#{$MD} + #{$responsive-text-zoom-font-c-rem});
+      }
+    }
+  }
+
+  @include breakpoint-screen-up("lg") {
+    #{$attr}: $LG;
+
+    @if ($doZoom) {
+      .has-zoomed-text & {
+        #{$attr}: calc(#{$LG} + #{$responsive-text-zoom-font-c-rem});
+      }
+    }
+  }
+
+  @include breakpoint-screen-up("xl") {
+    #{$attr}: px-to-rem($l);
+  }
+}
+
+@mixin breakpoint-screen-up($screen) {
+	$media-query: "screen";
+	$min: map-get(map-get($breakpoints, $screen), 'min');
+	
+	@if ($min > 0) {
+		$media-query: $media-query + " and (min-width: #{$min})";
+	}
+	
+	@media #{$media-query} {
+		@content;
+	}
+}
+
+@mixin breakpoint-screen-down($screen) {
+	$media-query: "screen";
+	$max: map-get(map-get($breakpoints, $screen), 'max');
+	
+	@if ($max) {
+		$media-query: $media-query + " and (max-width: #{$max})";
+	}
+	
+	@media #{$media-query} {
+		@content;
+	}
+}
+
+@function drop-shadow($level: 1, $theme: 'light') {
+	$r: 0 0 0 transparent;
+	
+	@if ($theme == 'light') {
+		@if ($level == 1) {
+				$r: 0px 4px 8px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.04);
+		} @else if ($level == 2) {
+				$r: 0px 8px 16px rgba(0, 0, 0, 0.08), 0px 4px 4px rgba(0, 0, 0, 0.04);
+		} @else if ($level == 3) {
+				$r: 0px 12px 20px rgba(0, 0, 0, 0.08), 0px 6px 6px rgba(0, 0, 0, 0.04);
+		} @else if ($level == 4) {
+				$r: 0px 16px 24px rgba(0, 0, 0, 0.08), 0px 8px 8px rgba(0, 0, 0, 0.04);
+		} @else if ($level == 5) {
+				$r: 0px 24px 28px rgba(0, 0, 0, 0.08), 0px 12px 12px rgba(0, 0, 0, 0.04);
+		}
+	} @else if ($theme == 'dark') {
+		@if ($level == 1) {
+				$r: 0px 4px 8px rgba(0, 0, 0, 0.24), 0px 2px 2px rgba(0, 0, 0, 0.12);
+		}	@else if ($level == 2) {
+				$r: 0px 8px 16px rgba(0, 0, 0, 0.24), 0px 4px 4px rgba(0, 0, 0, 0.12);
+		} @else if ($level == 3) {
+				$r: 0px 12px 20px rgba(0, 0, 0, 0.24), 0px 6px 6px rgba(0, 0, 0, 0.12);
+		} @else if ($level == 4) {
+				$r: 0px 16px 24px rgba(0, 0, 0, 0.24), 0px 8px 8px rgba(0, 0, 0, 0.12);
+		} @else if ($level == 5) {
+				$r: 0px 24px 28px rgba(0, 0, 0, 0.24), 0px 12px 12px rgba(0, 0, 0, 0.12);
+		}
+	}
+
+	@return $r;
+}
+
+@mixin grid-height-ratio($ratio) {
+	&::before {
+		content: "";
+		display: inline-block;
+		float: left;
+		width: 1px;
+		height: 0;
+		padding-bottom: calc(100% * #{$ratio});
+	}
+}

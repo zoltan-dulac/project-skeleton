@@ -1,0 +1,44 @@
+.cta {
+  @include typography-button;
+
+  appearance: none;
+  border: none;
+  @include responsive-font-size('padding', 10px, ($space-XS $space-L), ($space-XS $space-L), ($space-XS $space-L));
+  background: $color-red-base;
+  border-radius: 4px;
+  @include responsive-font-size('font-size', 14px, 14px, 14px, 14px);
+  text-decoration: none;
+
+  &__icon {
+    display: inline;
+    transform: translateY(2px);
+    @include responsive-font-size('font-size', 14px, 14px, 14px, 14px);
+    margin-right: 8px;
+  }
+
+  &--full-width {
+    width: 100%;
+  }
+
+  &--underlined {
+    appearance: none;
+    border: none;
+    background: none;
+    text-decoration: underline;
+  }
+  
+  &--plain {
+    appearance: none;
+    border: none;
+    text-decoration: none;
+    background: none;
+
+    &__icon {
+      display: inline;
+      transform: translateY(4px);
+      @include responsive-font-size('font-size', 14px, 14px, 14px, 14px);
+      margin-right: 8px;
+    }
+  }
+}
+

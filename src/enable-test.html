@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Product Landing Page</title>
+</head>
+
+<body>
+
+    <main>
+
+
+        <div id="my-switch" data-component="Switch" data-props-id="switch-props">
+
+        </div>
+        <script id="switch-props" type="application/json">
+            {
+                "id": "speaker-power",
+                "labels": {
+                    "off": "off",
+                    "on": "on",
+                    "main": "Speaker power"
+                }
+            }
+            </script>
+
+        <div class="back-to-top" data-component="BackToTop">
+            <a href="#top" class="back-to-top__link">Back to Top</a>
+        </div>
+
+        <div id="tooltip-test" data-component="Tooltip">
+            <p>
+                <a href="/" data-tooltip="This tooltip is accessible!">
+                    This link has a tooltip
+                </a>
+                <label for="input-tooltip-example">
+                    and so does this input field:
+                </label>
+                <input id="input-tooltip-example" type="text"
+                    data-tooltip="You can put tooltips on any focusable item.">
+            </p>
+        </div>
+
+        <div id="tabs-test" data-component="Tabs" data-props-id="tabs-props">
+            <div id="tabs">
+
+
+                <div class="sr-only tabs__instructions" id="tabs-keyboard-only-instructions">
+                    Use arrow keys to choose tabs. Content for the chosen tab will be revealed below.
+                </div>
+
+                <ul class="enable-tablist" data-keyboard-only-instructions="tabs-keyboard-only-instructions">
+                </ul>
+
+                <div class="tabpanels"></div>
+
+            </div>
+        </div>
+
+        <script id="tabs-props" type="application/json">
+            {
+                "id": "tab-test-1",
+                "tabs": [
+                    {
+                        "label": "The first",
+                        "content": "This is the first panel"
+                    },
+                    {
+                        "label": "The Second",
+                        "content": "The second panel is nicer"
+                    },
+                    {
+                        "label": "The third",
+                        "content": "What were you expecting?"
+                    }
+                ]
+            }
+        </script>
+
+        <template id="enable-tab__template">
+            <li>
+                <a href="#heading__${id}" class="enable-tab" data-owns="tabpanel__${id}--${index}">
+                    ${label}
+                </a>
+            </li>
+        </template>
+
+        <template id="enable-tabpanel__template">
+            <div lass="enable-tabpanel" id="tabpanel__${id}--${index}">
+                <h2 tabindex="-1" id="heading__${id}">${label}</h2>
+
+                <div class="tab__content">
+                    ${content}
+                </div>
+            </div>
+        </template>
+
+    </main>
+
+
+    <script type="application/json" id="global-props">
+    {
+        "closeButtonAlt": "Close Button"
+    }
+    </script>
+</body>
+
+</html>
