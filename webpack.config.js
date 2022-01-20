@@ -231,7 +231,7 @@ module.exports = {
     ],
     alias: {
       '~enable-a11y': path.resolve(__dirname, 'node_modules/enable-a11y'),
-      '../libs/accessibility-js-routines/dist/accessibility.module.js': path.resolve(__dirname, 'node_modules/enable-a11y/libs/accessibility-js-routines/dist/accessibility.module')
+      '../libs/accessibility-js-routines/dist/accessibility.module.js': path.resolve(__dirname, 'node_modules/accessibility-js-routines/dist/accessibility.module')
     },
     // polyfill for fallbacks
     fallback: {

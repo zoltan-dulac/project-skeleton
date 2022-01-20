@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Product Landing Page</title>
+</head>
+<body>
+    
+    <main>
+        <!-- <div id="map-container" data-component="Map">
+            loading.
+        </div> -->
+
+        <!--
+        <div id="video1" data-component="VideoPlayer" data-props-id="video-props"></div>
+        <script type="application/json" id="video-props">
+            {
+                "vimeoId": 387731376,
+                "vimeoDescId": 387814520,
+                "subtitlesSrc": "http://localhost/turkish-spider-man/3-dev-adam-trailer.vtt",
+                "transcriptSrc": "http://localhost/turkish-spider-man/3-dev-adam-trailer-2__transcript.txt"
+            }
+        </script>
+
+        <div id="button1" data-component="Button" data-props-id="button-props"></div>
+
+        <script type="application/json" id="button-props">
+        {
+            "text": "This is my button afasfas"
+        }
+        </script>
+    -->
+        <div id="top" class="sr-only">Top of document</div>
+
+        <!-- <div id="carousel" data-component="Carousel" data-props-id="carousel-props"></div> -->
+        <div id="plp" data-component="Plp" data-props-id="plp-props"></div>
+        <script type="application/json" id="plp-props">
+        {
+            "heading": "Filtered Tires",
+            "sorter": {
+                "label": "Sort By:",
+                "criteria": [
+                    {
+                        "name": "Featured",
+                        "id": "i0"
+                    },
+                    {
+                        "name": "Top Rated",
+                        "id": "i1"
+                    },
+                    {
+                        "name": "Newest",
+                        "id": "i2"
+                    },
+                    {
+                        "name": "Price (Low to High)",
+                        "id": "i3"
+                    }
+                ]
+            },
+            "filter": {
+                "heading": "Filter",
+                "filters": [
+                    {
+                        "name": "Vehicle Type",
+                        "subfilters": [
+                            {
+                                "name": "Pickup Truck",
+                                "id": "pickup-truck"
+                            },
+                            {
+                                "name": "Car/Minivan",
+                                "id": "car-minivan"
+                            },
+                            {
+                                "name": "Suv",
+                                "id": "suv"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Tire Season",
+                        "subfilters": [
+                            {
+                                "name": "All Season",
+                                "id": "i1-0"
+                            },
+                            {
+                                "name": "Winter",
+                                "id": "i1-1"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Road Conditions",
+                        "subfilters": [
+                            {
+                                "name": "Highway",
+                                "id": "i2-0"
+                            },
+                            {
+                                "name": "Off-road",
+                                "id": "i2-1"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "products": [
+                {
+                    "isFeatured": true,
+                    "isBestPerformance": false,
+                    "eyebrow": "All-Season",
+                    "name": "Discover Enduramax™",
+                    "rating": 4,
+                    "numReviews": 121,
+                    "tagline": "Fits Cars, Minivans and SUVs",
+                    "points": [
+                        "Quiet & smooth ride",
+                        "Superior handling, cornering & stability",
+                        "Exception traction for all weather"
+                    ],
+                    "price": 120,
+                    "teaser": "Includes a $50 reward",
+                    "img": {
+                        "src": "src/images/tire-example.jpg",
+                        "alt": "front view of CS5 Ultra Touring Tire"
+                    }
+                },
+                {
+                    "isFeatured": true,
+                    "isBestPerformance": false,
+                    "eyebrow": "All-Season",
+                    "name": "Discover Enduramax™",
+                    "rating": 4,
+                    "numReviews": 121,
+                    "tagline": "Fits Cars, Minivans and SUVs",
+                    "points": [
+                        "Quiet & smooth ride",
+                        "Superior handling, cornering & stability",
+                        "Exception traction for all weather"
+                    ],
+                    "price": 120,
+                    "teaser": "Includes a $50 reward",
+                    "img": {
+                        "src": "src/images/tire-example.jpg",
+                        "alt": "front view of CS5 Ultra Touring Tire"
+                    }
+                },
+                {
+                    "isFeatured": true,
+                    "isBestPerformance": false,
+                    "eyebrow": "All-Season",
+                    "name": "Discover Enduramax™",
+                    "rating": 4,
+                    "numReviews": 121,
+                    "tagline": "Fits Cars, Minivans and SUVs",
+                    "points": [
+                        "Quiet & smooth ride",
+                        "Superior handling, cornering & stability",
+                        "Exception traction for all weather"
+                    ],
+                    "price": 120,
+                    "teaser": "Includes a $50 reward",
+                    "img": {
+                        "src": "src/images/tire-example.jpg",
+                        "alt": "front view of CS5 Ultra Touring Tire"
+                    }
+                },
+                {
+                    "isFeatured": true,
+                    "isBestPerformance": false,
+                    "eyebrow": "All-Season",
+                    "name": "Discover Enduramax™",
+                    "rating": 4,
+                    "numReviews": 121,
+                    "tagline": "Fits Cars, Minivans and SUVs",
+                    "points": [
+                        "Quiet & smooth ride",
+                        "Superior handling, cornering & stability",
+                        "Exception traction for all weather"
+                    ],
+                    "price": 120,
+                    "teaser": "Includes a $50 reward",
+                    "img": {
+                        "src": "src/images/tire-example.jpg",
+                        "alt": "front view of CS5 Ultra Touring Tire"
+                    }
+                },
+                {
+                    "isFeatured": true,
+                    "isBestPerformance": false,
+                    "eyebrow": "All-Season",
+                    "name": "Discover Enduramax™",
+                    "rating": 4,
+                    "numReviews": 121,
+                    "tagline": "Fits Cars, Minivans and SUVs",
+                    "points": [
+                        "Quiet & smooth ride",
+                        "Superior handling, cornering & stability",
+                        "Exception traction for all weather"
+                    ],
+                    "price": 120,
+                    "teaser": "Includes a $50 reward",
+                    "img": {
+                        "src": "src/images/tire-example.jpg",
+                        "alt": "front view of CS5 Ultra Touring Tire"
+                    }
+                },
+                {
+                    "isFeatured": true,
+                    "isBestPerformance": false,
+                    "eyebrow": "All-Season",
+                    "name": "Discover Enduramax™",
+                    "rating": 4,
+                    "numReviews": 121,
+                    "tagline": "Fits Cars, Minivans and SUVs",
+                    "points": [
+                        "Quiet & smooth ride",
+                        "Superior handling, cornering & stability",
+                        "Exception traction for all weather"
+                    ],
+                    "price": 120,
+                    "teaser": "Includes a $50 reward",
+                    "img": {
+                        "src": "src/images/tire-example.jpg",
+                        "alt": "front view of CS5 Ultra Touring Tire"
+                    }
+                },
+                {
+                    "isFeatured": false,
+                    "isBestPerformance": true,
+                    "eyebrow": "All-Season",
+                    "name": "Discover Enduramax™",
+                    "rating": 4,
+                    "numReviews": 121,
+                    "tagline": "Fits Cars, Minivans and SUVs",
+                    "points": [
+                        "Quiet & smooth ride",
+                        "Superior handling, cornering & stability",
+                        "Exception traction for all weather"
+                    ],
+                    "price": 120,
+                    "teaser": "Includes a $50 reward",
+                    "img": {
+                        "src": "src/images/tire-example.jpg",
+                        "alt": "front view of CS5 Ultra Touring Tire"
+                    }
+                },
+                {
+                    "isFeatured": true,
+                    "isBestPerformance": false,
+                    "eyebrow": "All",
+                    "name": "Discover Enduramax™",
+                    "rating": 4,
+                    "numReviews": 121,
+                    "tagline": "Fits Cars, Minivans and SUVs",
+                    "points": [
+                        "Quiet & smooth ride",
+                        "Superior handling, cornering & stability",
+                        "Exception traction for all weather"
+                    ],
+                    "price": 120,
+                    "teaser": "Includes a $50 reward",
+                    "img": {
+                        "src": "src/images/tire-example.jpg",
+                        "alt": "front view of CS5 Ultra Touring Tire"
+                    }
+                }
+            ],
+            "i18n": {
+                "addToCompare": "Add To Compare",
+                "featuredTire": "Featured Tire",
+                "bestPerformance": "Best Performance",
+                "filterButtonAlt": "Filter"
+            }
+        }
+        </script>
+    </main>
+
+    <div id="footer" data-component="Footer" data-props-id="footer-props"></div>
+
+    <script type="application/json" id="footer-props">
+        {
+            "localePicker": {
+                "locales": {
+                    "fr_CA": {
+                        "name": "Canada (Français)",
+                        "id": "fr_CA",
+                        "href": "https://www.acme.ca",
+                        "icon": "/icons/canada-flag.svg"
+                    },
+                    "en_CA": {
+                        "name": "Canada (English)",
+                        "id": "en_CA",
+                        "href": "https://www.acme.ca",
+                        "icon": "/icons/canada-flag.svg"
+                    },
+                    "es_US": {
+                        "name": "U.S. (Español)",
+                        "id": "es_US",
+                        "href": "https://www.acme.fr",
+                        "icon": "/icons/us-flag.svg"
+                    },
+                    "en_US": {
+                        "name": "U.S. (English)",
+                        "id": "en_US",
+                        "href": "https://www.acme.com",
+                        "icon": "/icons/us-flag.svg"
+                    }
+                },
+                "current": "en_US"
+            },
+            "topSection": [
+                {
+                    "heading": "Getting Started",
+                    "list": [
+                        {
+                            "url": "/",
+                            "label": "Help Me Choose"
+                        },
+                        {
+                            "url": "/",
+                            "label": "Browse All Tires"
+                        },
+                        {
+                            "url": "/",
+                            "label": "Find a Store"
+                        },
+                        {
+                            "url": "/",
+                            "label": "Promotions"
+                        },
+                        {
+                            "url": "/",
+                            "label": "Fleet Sales"
+                        },
+                        {
+                            "url": "/",
+                            "label": "Contact Us"
+                        }
+                    ]
+                },
+                {
+                    "heading": "Tire Owners",
+                    "list": [
+                        {
+                            "url": "/",
+                            "label": "Register Your Tires"
+                        },
+                        {
+                            "url": "/",
+                            "label": "Tire Warranty"
+                        },
+                        {
+                            "url": "/",
+                            "label": "Redeem Promotions"
+                        },
+                        {
+                            "url": "/",
+                            "label": "Voluntary Recalls Information"
+                        },
+                        {
+                            "url": "/",
+                            "label": "Tire Service Bulletins"
+                        }
+                    ]
+                },
+                {
+                    "heading": "Our Company",
+                    "list": [
+                        {
+                            "url": "/",
+                            "label": "Why ACME"
+                        },
+                        {
+                            "url": "/",
+                            "label": "Who We Are"
+                        },
+                        {
+                            "url": "/",
+                            "label": "What We Do"
+                        },
+                        {
+                            "url": "/",
+                            "label": "My Garage Account"
+                        }
+                    ]
+                }
+            ],
+            "middleList": [
+                {
+                    "url":"/",
+                    "label": "Contest Rules"
+                },
+                {
+                    "url": "/",
+                    "label": "Merchandise"
+                },
+                {
+                    "url": "/",
+                    "label": "Accessibility"
+                },
+                {
+                    "url": "/",
+                    "label": "Privacy Policy"
+                },
+                {
+                    "url": "/",
+                    "label": "Terms of Service"
+                },
+                {
+                    "url": "/",
+                    "label": "Site Map"
+                }
+            ],
+            "bottomList": [
+                {
+                    "url": "/",
+                    "label": "Europe"
+                },
+                {
+                    "url": "/",
+                    "label": "Asia"
+                },
+                {
+                    "url": "/",
+                    "label": "Mexico"
+                }
+            ],
+            "copyright": "©2020 ACME"
+          }
+    </script>
+
+    <!-- <footer class="footer">
+        <nav aria-label="Secondary Navigation">
+            <div class="footer__top-section">
+                <div data-component="LocalePicker" data-props-id="locale-picker-props"></div>
+                <script type="application/json" id="locale-picker-props">
+                
+                </script>
+
+                <ul class="footer__items footer__items--top">
+                    <li class="footer__item"><a href="/" class="footer__item-link">Contest Rules</a></li>
+                    <li class="footer__item"><a href="/" class="footer__item-link">Merchandise</a></li>
+                    <li class="footer__item"><a href="/" class="footer__item-link">Accessibility</a></li>
+                    <li class="footer__item"><a href="/" class="footer__item-link">Privacy Policy</a></li>
+                    <li class="footer__item"><a href="/" class="footer__item-link">Terms of Service</a></li>
+                    <li class="footer__item"><a href="/" class="footer__item-link">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="footer__bottom-section footer__items--bottom">
+                <ul class="footer__items">
+                    <li class="footer__item"><a href="/" class="footer__item-link">Europe</a></li>
+                    <li class="footer__item"><a href="/" class="footer__item-link">Asia</a></li>
+                    <li class="footer__item"><a href="/" class="footer__item-link">Mexico</a></li>
+                </ul>
+                <div class="footer__copyright" role="contentinfo">
+                    ©2020 ACME
+                </div>
+            </div>
+        </nav>
+
+    </footer>
+-->
+
+    <script type="application/json" id="global-props">
+    {
+        "closeButtonAlt": "Close Button"
+    }
+    </script>
+
+</body>
+</html>
