@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="utf-8">
-        <title>Product Landing Page</title>
-    </head>
+<head>
+    <meta charset="utf-8">
+    <title>Product Landing Page</title>
+</head>
 
-    <body>
+<body>
 
-        <main>
+    <main>
 
 
-            <div id="my-switch" data-component="Switch"
-                data-props-id="switch-props">
+        <div id="my-switch" data-component="Switch" data-props-id="switch-props">
 
-            </div>
-            <script id="switch-props" type="application/json">
+        </div>
+        <script id="switch-props" type="application/json">
             {
                 "id": "speaker-power",
                 "labels": {
@@ -25,45 +24,41 @@
                 }
             }
             </script>
-            <div class="back-to-top" data-component="BackToTop">
-                <a href="#top" class="back-to-top__link">Back to Top</a>
-            </div>
+        <div class="back-to-top" data-component="BackToTop">
+            <a href="#top" class="back-to-top__link">Back to Top</a>
+        </div>
 
-            <div id="tooltip-test" data-component="Tooltip">
-                <p>
-                    <a href="/" data-tooltip="This tooltip is accessible!">
-                        This link has a tooltip
-                    </a>
-                    <label for="input-tooltip-example">
-                        and so does this input field:
-                    </label>
-                    <input id="input-tooltip-example" type="text"
-                        data-tooltip="You can put tooltips on any focusable
+        <div id="tooltip-test" data-component="Tooltip">
+            <p>
+                <a href="/" data-tooltip="This tooltip is accessible!">
+                    This link has a tooltip
+                </a>
+                <label for="input-tooltip-example">
+                    and so does this input field:
+                </label>
+                <input id="input-tooltip-example" type="text" data-tooltip="You can put tooltips on any focusable
                         item.">
-                </p>
-            </div>
+            </p>
+        </div>
 
-            <div id="tabs-test" data-component="Tabs"
-                data-props-id="tabs-props">
-                <div id="tabs">
+        <div id="tabs-test" data-component="Tabs" data-props-id="tabs-props">
+            <div id="tabs">
 
 
-                    <div class="sr-only tabs__instructions"
-                        id="tabs-keyboard-only-instructions">
-                        Use arrow keys to choose tabs. Content for the chosen
-                        tab will be revealed below.
-                    </div>
-
-                    <ul class="enable-tablist"
-                        data-keyboard-only-instructions="tabs-keyboard-only-instructions">
-                    </ul>
-
-                    <div class="tabpanels"></div>
-
+                <div class="sr-only tabs__instructions" id="tabs-keyboard-only-instructions">
+                    Use arrow keys to choose tabs. Content for the chosen
+                    tab will be revealed below.
                 </div>
-            </div>
 
-            <script id="tabs-props" type="application/json">
+                <ul class="enable-tablist" data-keyboard-only-instructions="tabs-keyboard-only-instructions">
+                </ul>
+
+                <div class="tabpanels"></div>
+
+            </div>
+        </div>
+
+        <script id="tabs-props" type="application/json">
             {
                 "id": "tab-test-1",
                 "tabs": [
@@ -82,180 +77,230 @@
                 ]
             }
         </script>
-            <template id="enable-tab__template">
-                <li>
-                    <a href="#heading__${id}" class="enable-tab"
-                        data-owns="tabpanel__${id}--${index}">
-                        ${label}
-                    </a>
-                </li>
-            </template>
+        <template id="enable-tab__template">
+            <li>
+                <a href="#heading__${id}" class="enable-tab" data-owns="tabpanel__${id}--${index}">
+                    ${label}
+                </a>
+            </li>
+        </template>
 
-            <template id="enable-tabpanel__template">
-                <div lass="enable-tabpanel" id="tabpanel__${id}--${index}">
-                    <h2 tabindex="-1" id="heading__${id}">${label}</h2>
+        <template id="enable-tabpanel__template">
+            <div lass="enable-tabpanel" id="tabpanel__${id}--${index}">
+                <h2 tabindex="-1" id="heading__${id}">${label}</h2>
 
-                    <div class="tab__content">
-                        ${content}
-                    </div>
+                <div class="tab__content">
+                    ${content}
                 </div>
-            </template>
+            </div>
+        </template>
 
 
-            <!-- Sortable table -->
-            <div data-component="SortableTable">
-                <div id="sortable-table" class="deque-table-sortable-group">
-                    <div
-                        id="user-info-table__sort-instructions">
-                        Click the table heading buttons to sort the table by the
-                        data in its column.
-                    </div>
-                    <table
-                        id="user-info-table"
-                        class="deque-table-sortable"
-                        role="grid"
-                        aria-readonly="true"
-                        data-aria-live-update="The table ${caption} is now
-                        ${sortedBy}"
-                        data-ascending-label="Sorted in ascending order"
-                        data-descending-label="Sorted in descending order">
-                        <caption>
-                            User Information
-                        </caption>
-                        <thead>
-                            <tr>
-                                <th
-                                    scope="col"
-                                    aria-sort="ascending">
-                                    <button
-                                        class="sortableColumnLabel"
-                                        aria-describedby="user-info-table__sort-instructions"
-                                        tabindex="0"
-                                        aria-label="Name, Sorted in ascending
+        <!-- Sortable table -->
+        <div data-component="SortableTable">
+            <div id="sortable-table" class="deque-table-sortable-group">
+                <div id="user-info-table__sort-instructions">
+                    Click the table heading buttons to sort the table by the
+                    data in its column.
+                </div>
+                <table id="user-info-table" class="deque-table-sortable" role="grid" aria-readonly="true"
+                    data-aria-live-update="The table ${caption} is now
+                        ${sortedBy}" data-ascending-label="Sorted in ascending order"
+                    data-descending-label="Sorted in descending order">
+                    <caption>
+                        User Information
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th scope="col" aria-sort="ascending">
+                                <button class="sortableColumnLabel"
+                                    aria-describedby="user-info-table__sort-instructions" tabindex="0" aria-label="Name, Sorted in ascending
                                         order">
-                                        Name
-                                    </button>
-                                </th>
-                                <th scope="col">
-                                    <button
-                                        class="sortableColumnLabel"
-                                        aria-describedby="user-info-table__sort-instructions"
-                                        tabindex="0">
-                                        Age
-                                    </button>
-                                </th>
-                                <th scope="col">
-                                    <button
-                                        class="sortableColumnLabel"
-                                        aria-describedby="user-info-table__sort-instructions"
-                                        tabindex="0">
-                                        Favorite Color
-                                    </button>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr role="row">
-                                <th
-                                    scope="row"
-                                    role="rowheader">
-                                    Caitlin
-                                </th>
-                                <td role="gridcell">
-                                    21
-                                </td>
-                                <td role="gridcell">
-                                    Red
-                                </td>
-                            </tr>
-                            <tr role="row">
-                                <th
-                                    scope="row"
-                                    role="rowheader">
-                                    Cyan
-                                </th>
-                                <td role="gridcell">
-                                    35
-                                </td>
-                                <td role="gridcell">
-                                    Burgundy
-                                </td>
-                            </tr>
-                            <tr role="row">
-                                <th
-                                    scope="row"
-                                    role="rowheader">
-                                    Greg
-                                </th>
-                                <td role="gridcell">
-                                    45
-                                </td>
-                                <td role="gridcell">
-                                    Orange
-                                </td>
-                            </tr>
-                            <tr role="row">
-                                <th
-                                    scope="row"
-                                    role="rowheader">
-                                    Hannah
-                                </th>
-                                <td role="gridcell">
-                                    28
-                                </td>
-                                <td role="gridcell">
-                                    Blue
-                                </td>
-                            </tr>
-                            <tr role="row">
-                                <th
-                                    scope="row"
-                                    role="rowheader">
-                                    Myk
-                                </th>
-                                <td role="gridcell">
-                                    33
-                                </td>
-                                <td role="gridcell">
-                                    Purple
-                                </td>
-                            </tr>
-                            <tr role="row">
-                                <th
-                                    scope="row"
-                                    role="rowheader">
-                                    Salim
-                                </th>
-                                <td role="gridcell">
-                                    7
-                                </td>
-                                <td role="gridcell">
-                                    Green
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <span
-                        class="deque-table-sortable__live-region sr-only"
-                        aria-live="assertive"
-                        data-read-captions="false">
-                        The table User Information is now sorted by Name, Sorted
-                        in ascending order
+                                    Name
+                                </button>
+                            </th>
+                            <th scope="col">
+                                <button class="sortableColumnLabel"
+                                    aria-describedby="user-info-table__sort-instructions" tabindex="0">
+                                    Age
+                                </button>
+                            </th>
+                            <th scope="col">
+                                <button class="sortableColumnLabel"
+                                    aria-describedby="user-info-table__sort-instructions" tabindex="0">
+                                    Favorite Color
+                                </button>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr role="row">
+                            <th scope="row" role="rowheader">
+                                Caitlin
+                            </th>
+                            <td role="gridcell">
+                                21
+                            </td>
+                            <td role="gridcell">
+                                Red
+                            </td>
+                        </tr>
+                        <tr role="row">
+                            <th scope="row" role="rowheader">
+                                Cyan
+                            </th>
+                            <td role="gridcell">
+                                35
+                            </td>
+                            <td role="gridcell">
+                                Burgundy
+                            </td>
+                        </tr>
+                        <tr role="row">
+                            <th scope="row" role="rowheader">
+                                Greg
+                            </th>
+                            <td role="gridcell">
+                                45
+                            </td>
+                            <td role="gridcell">
+                                Orange
+                            </td>
+                        </tr>
+                        <tr role="row">
+                            <th scope="row" role="rowheader">
+                                Hannah
+                            </th>
+                            <td role="gridcell">
+                                28
+                            </td>
+                            <td role="gridcell">
+                                Blue
+                            </td>
+                        </tr>
+                        <tr role="row">
+                            <th scope="row" role="rowheader">
+                                Myk
+                            </th>
+                            <td role="gridcell">
+                                33
+                            </td>
+                            <td role="gridcell">
+                                Purple
+                            </td>
+                        </tr>
+                        <tr role="row">
+                            <th scope="row" role="rowheader">
+                                Salim
+                            </th>
+                            <td role="gridcell">
+                                7
+                            </td>
+                            <td role="gridcell">
+                                Green
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <span class="deque-table-sortable__live-region sr-only" aria-live="assertive"
+                    data-read-captions="false">
+                    The table User Information is now sorted by Name, Sorted
+                    in ascending order
+                </span>
+            </div>
+        </div>
+
+        <div data-component="SpinButton" data-id="age" data-min="0" data-max="100" data-inc="10" data-value="50">
+        </div>
+
+        <div data-component="RadioGroup">
+            <div role="radiogroup" aria-labelledby="alert1" class="enable-custom-radiogroup aria-form-group">
+                <p id="alert1" class="legend">
+                    Send an alert when balance exceeds $ 3,000
+                </p>
+                <div>
+                    <span role="radio" aria-checked="false" tabindex="0" aria-labelledby="a1r1" data-name="a1radio">
+                    </span>
+                    <span id="a1r1" class="aria-radio-label">
+                        Yes
+                    </span>
+                </div>
+                <div>
+                    <span role="radio" aria-checked="false" tabindex="0" aria-labelledby="a1r2" data-name="a1radio">
+                    </span>
+                    <span id="a1r2" class="aria-radio-label">
+                        No
                     </span>
                 </div>
             </div>
+        </div>
 
-            <div data-component="SpinButton" data-id="age" data-min="0" data-max="100" data-inc="10" data-value="50">
-            </div>
+        <div data-component="Checkbox" data-id="i-agree" data-value="false"
+            data-label="I agree to sell my soul to Zoltan"></div>
 
-        </main>
+        <div data-component="Combobox" data-props-id="Combobox-props"></div>
+
+        <script id="Combobox-props" type="application/json">
+                {
+                    "id": "movies",
+                    "label": "Search for a film in our database:",
+                    "sr-instructions": "As you type, press the enter key or use the up and down arrow keys to choose the autocomplete items.",
+                    "autocomplete": [
+                        "The Room",
+                        "Plan 9 From Outer Space",
+                        "Queen Kong",
+                        "Samurai Cop",
+                        "Killing American Style",
+                        "Troll 2",
+                        "Anaconda",
+                        "Barabarella",
+                        "Clockwork Orange",
+                        "Zuma"
+                    ]
+                }
+            </script>
+        <template id="combobox__main">
+            <form>
+                <div class="enable-combobox">
+                    <label id="${id}__label" for="${id}">
+                        ${label}
+                    </label>
+                    <div class="enable-combobox__inner-container">
+                        <div class="enable-combobox__controls-container">
+                            <div role="status" aria-atomic="true">
+                            </div>
+                            <input type="text" id="${id}" aria-describedby="${id}__desc" role="combobox"
+                                aria-autocomplete="list" aria-owns="${id}__list" aria-expanded="false" autocomplete="off"
+                                autocorrect="off" autocapitalize="none" required>
+                            <button class="enable-combobox__reset-button" aria-controls="${id}" type="reset"
+                                aria-describedby="${id}__label">
+                                <img class="enable-combobox__reset-button-image" src="images/close-window.svg" alt="Clear">
+                            </button>
+                            <ul role="listbox" id="${id}__list" tabindex="-1" hidden>
 
 
-        <script type="application/json" id="global-props">
+                            </ul>
+                        </div>
+                        <div class="sr-only" id="${id}__desc">
+                            ${sr-instructions}
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </template>
+        <template id="combobox__item">
+            <li role="option" value="${value}">
+                ${value}
+            </li>
+        </template>
+    </main>
+
+
+    <script type="application/json" id="global-props">
     {
         "closeButtonAlt": "Close Button"
     }
     </script>
-    </body>
+</body>
 
 </html>
