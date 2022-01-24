@@ -13,5 +13,8 @@ components.SpinButton = require('components/SpinButton/loader.js').default;
 components.RadioGroup = require('components/RadioGroup/loader.js').default;
 components.Checkbox = require('components/Checkbox/loader.js').default;
 components.Combobox = require('components/Combobox/loader.js').default;
+components.Carousel = require('components/Carousel/loader.js').default;
+components.Drawer = require('components/Drawer/loader.js').default;
+components.Listbox = require('components/Listbox/loader.js').default;
 
 export default components;

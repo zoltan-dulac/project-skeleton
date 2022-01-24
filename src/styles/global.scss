@@ -1,9 +1,14 @@
 @import 'config';
 @import 'shared/reset';
+@import '~enable-a11y/css/shared/a11y';
+
 @import 'shared/fonts';
+/*
 @import 'shared/grid';
 @import 'shared/a11y';
 @import 'shared/_cta';
+*/
+
 
 // Components that are on every page
 // @import 'components/Footer/style.scss';

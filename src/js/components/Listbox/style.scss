@@ -1,0 +1,8 @@
+
+@import 'config';
+@import '~enable-a11y/css/enable-listbox';
+
+.enable-listbox [role="listbox"] {
+  width: 300px;
+  z-index: 3;
+}

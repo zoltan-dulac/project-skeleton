@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <title>Product Landing Page</title>
-</head>
+    <head>
+        <meta charset="utf-8">
+        <title>Product Landing Page</title>
+        <link rel="stylesheet" href="~enable-a11y/css/shared/a11y" />
+    </head>
 
-<body>
+    <body>
 
-    <main>
+        <main>
 
 
-        <div id="my-switch" data-component="Switch" data-props-id="switch-props">
+            <div id="my-switch" data-component="Switch"
+                data-props-id="switch-props">
 
-        </div>
-        <script id="switch-props" type="application/json">
+            </div>
+            <script id="switch-props" type="application/json">
             {
                 "id": "speaker-power",
                 "labels": {
@@ -24,41 +26,164 @@
                 }
             }
             </script>
-        <div class="back-to-top" data-component="BackToTop">
-            <a href="#top" class="back-to-top__link">Back to Top</a>
-        </div>
-
-        <div id="tooltip-test" data-component="Tooltip">
-            <p>
-                <a href="/" data-tooltip="This tooltip is accessible!">
-                    This link has a tooltip
-                </a>
-                <label for="input-tooltip-example">
-                    and so does this input field:
-                </label>
-                <input id="input-tooltip-example" type="text" data-tooltip="You can put tooltips on any focusable
-                        item.">
-            </p>
-        </div>
-
-        <div id="tabs-test" data-component="Tabs" data-props-id="tabs-props">
-            <div id="tabs">
-
-
-                <div class="sr-only tabs__instructions" id="tabs-keyboard-only-instructions">
-                    Use arrow keys to choose tabs. Content for the chosen
-                    tab will be revealed below.
-                </div>
-
-                <ul class="enable-tablist" data-keyboard-only-instructions="tabs-keyboard-only-instructions">
-                </ul>
-
-                <div class="tabpanels"></div>
-
+            <div data-component="Drawer">
+                <div class="enable-drawer">
+                    <button
+                      id="enable-drawer1"
+                      class="enable-drawer__button"
+                      aria-controls="enable-drawer1__content"
+                    >
+                  
+                      What is Bruce Le?
+                  
+                    </button>
+                    <div
+                      id="enable-drawer1__content"
+                      class="enable-drawer__content"
+                      role="region"
+                    >
+                  
+                      Bruce Le is a Bruce Lee impersonator.
+                  
+                    </div>
+                  </div>
             </div>
-        </div>
 
-        <script id="tabs-props" type="application/json">
+            <div data-component="Listbox" data-props-id="listbox-props"></div>
+
+            <script type="application/json" id="listbox-props">
+            {
+                "id": "provinces",
+                "label": "Choose a province",
+                "defaultDisplay": "&nbsp;",
+                "values": [
+                    {
+                        "display": "Newfoundland and Labrador",
+                        "value": "NL"
+                    }, {
+                        "display": "Prince Edward Island",
+                        "value": "PE"
+                    }, {
+                        "display": "Nova Scotia", 
+                        "value": "NS"
+                    }, {
+                        "display": "New Brunswick", 
+                        "value": "NB"
+                    }, {
+                        "display": "Quebec",
+                        "value": "QC"
+                    }, {
+                        "display": "Ontario",
+                        "value": "ON"
+                    }, {
+                        "display": "Manitoba", 
+                        "value": "MB"
+                    }, {
+                        "display": "Saskatchewan",
+                        "value": "SK"
+                    }, {
+                        "display": "Alberta",
+                        "value": "AB"
+                    }, {
+                        "display": "British Columbia",
+                        "value": "BC"
+                    }, {
+                        "display": "Yukon",
+                        "value": "YT"
+                    }, {
+                        "display": "Northwest Territories",
+                        "value": "NT"
+                    }, {
+                        "display": "Nunavut",
+                        "value": "NU"
+                    }
+                ]
+            }
+            </script>
+
+            <template id="listbox__main">
+                <div
+                class="enable-listbox listbox-area"
+                >
+                <div class="left-area">
+                    <span
+                    id="${id}"
+                    class="enable-listbox__${id}"
+                    >
+                    ${label}:
+                    </span>
+                    <div
+                    id="${id}_wrapper"
+                    class="enable-listbox__wrapper"
+                    >
+                    <button
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                        aria-labelledby="${id} exp_button"
+                        id="exp_button"
+                        class="enable-listbox__button"
+                    >
+                        ${defaultDisplay}
+                    </button>
+                    <ul
+                        id="${id}_list"
+                        class="hidden"
+                        tabindex="-1"
+                        role="listbox"
+                        aria-labelledby="${id}"
+                    >
+                        <!-- This is where the listbox values will go -->
+                    </ul>
+                    </div>
+                </div>
+                </div>
+            </template>
+
+            <template id="listbox__item">
+                <li
+                    data-value="${value}"
+                    role="option"
+                    aria-selected="false"
+                >
+                    ${display}
+                </li>
+            </template>
+
+            <div id="tooltip-test" data-component="Tooltip">
+                <p>
+                    <a href="/" data-tooltip="This tooltip is accessible!">
+                        This link has a tooltip
+                    </a>
+                    <label for="input-tooltip-example">
+                        and so does this input field:
+                    </label>
+                    <input id="input-tooltip-example" type="text"
+                        data-tooltip="You can put tooltips on any focusable
+                        item.">
+                </p>
+            </div>
+
+            <div id="tabs-test" data-component="Tabs"
+                data-props-id="tabs-props">
+                <div id="tabs">
+
+
+                    <div class="sr-only tabs__instructions"
+                        id="tabs-keyboard-only-instructions">
+                        Use arrow keys to choose tabs. Content for the chosen
+                        tab will be revealed below.
+                    </div>
+
+                    <ul class="enable-tablist"
+                        data-keyboard-only-instructions="tabs-keyboard-only-instructions">
+                    </ul>
+
+                    <div class="tabpanels"></div>
+
+                </div>
+            </div>
+
+            <script id="tabs-props" type="application/json">
             {
                 "id": "tab-test-1",
                 "tabs": [
@@ -77,170 +202,181 @@
                 ]
             }
         </script>
-        <template id="enable-tab__template">
-            <li>
-                <a href="#heading__${id}" class="enable-tab" data-owns="tabpanel__${id}--${index}">
-                    ${label}
-                </a>
-            </li>
-        </template>
+            <template id="enable-tab__template">
+                <li>
+                    <a href="#heading__${id}" class="enable-tab"
+                        data-owns="tabpanel__${id}--${index}">
+                        ${label}
+                    </a>
+                </li>
+            </template>
 
-        <template id="enable-tabpanel__template">
-            <div lass="enable-tabpanel" id="tabpanel__${id}--${index}">
-                <h2 tabindex="-1" id="heading__${id}">${label}</h2>
+            <template id="enable-tabpanel__template">
+                <div lass="enable-tabpanel" id="tabpanel__${id}--${index}">
+                    <h2 tabindex="-1" id="heading__${id}">${label}</h2>
 
-                <div class="tab__content">
-                    ${content}
+                    <div class="tab__content">
+                        ${content}
+                    </div>
                 </div>
-            </div>
-        </template>
+            </template>
 
 
-        <!-- Sortable table -->
-        <div data-component="SortableTable">
-            <div id="sortable-table" class="deque-table-sortable-group">
-                <div id="user-info-table__sort-instructions">
-                    Click the table heading buttons to sort the table by the
-                    data in its column.
-                </div>
-                <table id="user-info-table" class="deque-table-sortable" role="grid" aria-readonly="true"
-                    data-aria-live-update="The table ${caption} is now
-                        ${sortedBy}" data-ascending-label="Sorted in ascending order"
-                    data-descending-label="Sorted in descending order">
-                    <caption>
-                        User Information
-                    </caption>
-                    <thead>
-                        <tr>
-                            <th scope="col" aria-sort="ascending">
-                                <button class="sortableColumnLabel"
-                                    aria-describedby="user-info-table__sort-instructions" tabindex="0" aria-label="Name, Sorted in ascending
+            <!-- Sortable table -->
+            <div data-component="SortableTable">
+                <div id="sortable-table" class="deque-table-sortable-group">
+                    <div id="user-info-table__sort-instructions">
+                        Click the table heading buttons to sort the table by the
+                        data in its column.
+                    </div>
+                    <table id="user-info-table" class="deque-table-sortable"
+                        role="grid" aria-readonly="true"
+                        data-aria-live-update="The table ${caption} is now
+                        ${sortedBy}" data-ascending-label="Sorted in ascending
+                        order"
+                        data-descending-label="Sorted in descending order">
+                        <caption>
+                            User Information
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th scope="col" aria-sort="ascending">
+                                    <button class="sortableColumnLabel"
+                                        aria-describedby="user-info-table__sort-instructions"
+                                        tabindex="0" aria-label="Name, Sorted in
+                                        ascending
                                         order">
-                                    Name
-                                </button>
-                            </th>
-                            <th scope="col">
-                                <button class="sortableColumnLabel"
-                                    aria-describedby="user-info-table__sort-instructions" tabindex="0">
-                                    Age
-                                </button>
-                            </th>
-                            <th scope="col">
-                                <button class="sortableColumnLabel"
-                                    aria-describedby="user-info-table__sort-instructions" tabindex="0">
-                                    Favorite Color
-                                </button>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr role="row">
-                            <th scope="row" role="rowheader">
-                                Caitlin
-                            </th>
-                            <td role="gridcell">
-                                21
-                            </td>
-                            <td role="gridcell">
-                                Red
-                            </td>
-                        </tr>
-                        <tr role="row">
-                            <th scope="row" role="rowheader">
-                                Cyan
-                            </th>
-                            <td role="gridcell">
-                                35
-                            </td>
-                            <td role="gridcell">
-                                Burgundy
-                            </td>
-                        </tr>
-                        <tr role="row">
-                            <th scope="row" role="rowheader">
-                                Greg
-                            </th>
-                            <td role="gridcell">
-                                45
-                            </td>
-                            <td role="gridcell">
-                                Orange
-                            </td>
-                        </tr>
-                        <tr role="row">
-                            <th scope="row" role="rowheader">
-                                Hannah
-                            </th>
-                            <td role="gridcell">
-                                28
-                            </td>
-                            <td role="gridcell">
-                                Blue
-                            </td>
-                        </tr>
-                        <tr role="row">
-                            <th scope="row" role="rowheader">
-                                Myk
-                            </th>
-                            <td role="gridcell">
-                                33
-                            </td>
-                            <td role="gridcell">
-                                Purple
-                            </td>
-                        </tr>
-                        <tr role="row">
-                            <th scope="row" role="rowheader">
-                                Salim
-                            </th>
-                            <td role="gridcell">
-                                7
-                            </td>
-                            <td role="gridcell">
-                                Green
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <span class="deque-table-sortable__live-region sr-only" aria-live="assertive"
-                    data-read-captions="false">
-                    The table User Information is now sorted by Name, Sorted
-                    in ascending order
-                </span>
-            </div>
-        </div>
-
-        <div data-component="SpinButton" data-id="age" data-min="0" data-max="100" data-inc="10" data-value="50">
-        </div>
-
-        <div data-component="RadioGroup">
-            <div role="radiogroup" aria-labelledby="alert1" class="enable-custom-radiogroup aria-form-group">
-                <p id="alert1" class="legend">
-                    Send an alert when balance exceeds $ 3,000
-                </p>
-                <div>
-                    <span role="radio" aria-checked="false" tabindex="0" aria-labelledby="a1r1" data-name="a1radio">
-                    </span>
-                    <span id="a1r1" class="aria-radio-label">
-                        Yes
-                    </span>
-                </div>
-                <div>
-                    <span role="radio" aria-checked="false" tabindex="0" aria-labelledby="a1r2" data-name="a1radio">
-                    </span>
-                    <span id="a1r2" class="aria-radio-label">
-                        No
+                                        Name
+                                    </button>
+                                </th>
+                                <th scope="col">
+                                    <button class="sortableColumnLabel"
+                                        aria-describedby="user-info-table__sort-instructions"
+                                        tabindex="0">
+                                        Age
+                                    </button>
+                                </th>
+                                <th scope="col">
+                                    <button class="sortableColumnLabel"
+                                        aria-describedby="user-info-table__sort-instructions"
+                                        tabindex="0">
+                                        Favorite Color
+                                    </button>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr role="row">
+                                <th scope="row" role="rowheader">
+                                    Caitlin
+                                </th>
+                                <td role="gridcell">
+                                    21
+                                </td>
+                                <td role="gridcell">
+                                    Red
+                                </td>
+                            </tr>
+                            <tr role="row">
+                                <th scope="row" role="rowheader">
+                                    Cyan
+                                </th>
+                                <td role="gridcell">
+                                    35
+                                </td>
+                                <td role="gridcell">
+                                    Burgundy
+                                </td>
+                            </tr>
+                            <tr role="row">
+                                <th scope="row" role="rowheader">
+                                    Greg
+                                </th>
+                                <td role="gridcell">
+                                    45
+                                </td>
+                                <td role="gridcell">
+                                    Orange
+                                </td>
+                            </tr>
+                            <tr role="row">
+                                <th scope="row" role="rowheader">
+                                    Hannah
+                                </th>
+                                <td role="gridcell">
+                                    28
+                                </td>
+                                <td role="gridcell">
+                                    Blue
+                                </td>
+                            </tr>
+                            <tr role="row">
+                                <th scope="row" role="rowheader">
+                                    Myk
+                                </th>
+                                <td role="gridcell">
+                                    33
+                                </td>
+                                <td role="gridcell">
+                                    Purple
+                                </td>
+                            </tr>
+                            <tr role="row">
+                                <th scope="row" role="rowheader">
+                                    Salim
+                                </th>
+                                <td role="gridcell">
+                                    7
+                                </td>
+                                <td role="gridcell">
+                                    Green
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <span class="deque-table-sortable__live-region sr-only"
+                        aria-live="assertive"
+                        data-read-captions="false">
+                        The table User Information is now sorted by Name, Sorted
+                        in ascending order
                     </span>
                 </div>
             </div>
-        </div>
 
-        <div data-component="Checkbox" data-id="i-agree" data-value="false"
-            data-label="I agree to sell my soul to Zoltan"></div>
+            <div data-component="SpinButton" data-id="age" data-min="0"
+                data-max="100" data-inc="10" data-value="50">
+            </div>
 
-        <div data-component="Combobox" data-props-id="Combobox-props"></div>
+            <div data-component="RadioGroup">
+                <div role="radiogroup" aria-labelledby="alert1"
+                    class="enable-custom-radiogroup aria-form-group">
+                    <p id="alert1" class="legend">
+                        Send an alert when balance exceeds $ 3,000
+                    </p>
+                    <div>
+                        <span role="radio" aria-checked="false" tabindex="0"
+                            aria-labelledby="a1r1" data-name="a1radio">
+                        </span>
+                        <span id="a1r1" class="aria-radio-label">
+                            Yes
+                        </span>
+                    </div>
+                    <div>
+                        <span role="radio" aria-checked="false" tabindex="0"
+                            aria-labelledby="a1r2" data-name="a1radio">
+                        </span>
+                        <span id="a1r2" class="aria-radio-label">
+                            No
+                        </span>
+                    </div>
+                </div>
+            </div>
 
-        <script id="Combobox-props" type="application/json">
+            <div data-component="Checkbox" data-id="i-agree" data-value="false"
+                data-label="I agree to sell my soul to Zoltan"></div>
+
+            <div data-component="Combobox" data-props-id="Combobox-props"></div>
+            <script id="Combobox-props" type="application/json">
                 {
                     "id": "movies",
                     "label": "Search for a film in our database:",
@@ -259,48 +395,135 @@
                     ]
                 }
             </script>
-        <template id="combobox__main">
-            <form>
-                <div class="enable-combobox">
-                    <label id="${id}__label" for="${id}">
-                        ${label}
-                    </label>
-                    <div class="enable-combobox__inner-container">
-                        <div class="enable-combobox__controls-container">
-                            <div role="status" aria-atomic="true">
+            <template id="combobox__main">
+                <form>
+                    <div class="enable-combobox">
+                        <label id="${id}__label" for="${id}">
+                            ${label}
+                        </label>
+                        <div class="enable-combobox__inner-container">
+                            <div class="enable-combobox__controls-container">
+                                <div role="status" aria-atomic="true">
+                                </div>
+                                <input type="text" id="${id}"
+                                    aria-describedby="${id}__desc"
+                                    role="combobox"
+                                    aria-autocomplete="list"
+                                    aria-owns="${id}__list"
+                                    aria-expanded="false" autocomplete="off"
+                                    autocorrect="off" autocapitalize="none"
+                                    required>
+                                <button class="enable-combobox__reset-button"
+                                    aria-controls="${id}" type="reset"
+                                    aria-describedby="${id}__label">
+                                    <img
+                                        class="enable-combobox__reset-button-image"
+                                        src="http://localhost:8080/images/close-window.svg"
+                                        alt="Clear">
+                                </button>
+                                <ul role="listbox" id="${id}__list"
+                                    tabindex="-1" hidden>
+
+
+                                </ul>
                             </div>
-                            <input type="text" id="${id}" aria-describedby="${id}__desc" role="combobox"
-                                aria-autocomplete="list" aria-owns="${id}__list" aria-expanded="false" autocomplete="off"
-                                autocorrect="off" autocapitalize="none" required>
-                            <button class="enable-combobox__reset-button" aria-controls="${id}" type="reset"
-                                aria-describedby="${id}__label">
-                                <img class="enable-combobox__reset-button-image" src="images/close-window.svg" alt="Clear">
-                            </button>
-                            <ul role="listbox" id="${id}__list" tabindex="-1" hidden>
-
-
-                            </ul>
-                        </div>
-                        <div class="sr-only" id="${id}__desc">
-                            ${sr-instructions}
+                            <div class="sr-only" id="${id}__desc">
+                                ${sr-instructions}
+                            </div>
                         </div>
                     </div>
+                </form>
+            </template>
+            <template id="combobox__item">
+                <li role="option" value="${value}">
+                    ${value}
+                </li>
+            </template>
+
+
+            <div data-component="Carousel" data-props-id="carousel-props">
+                <div class="enable-mobile-visible-on-focus__container enable-skip-link--begin">
+                    <a href="#end-of-component-1" id="beginning-of-component-1"
+                        class="enable-mobile-visible-on-focus enable-skip-link">
+                        Skip to end of promotional links
+                    </a>
                 </div>
-            </form>
-        </template>
-        <template id="combobox__item">
-            <li role="option" value="${value}">
-                ${value}
-            </li>
-        </template>
-    </main>
+    
+                <div class="glider-contain">
+                    <div class="glider">
+                        <div class="enable-carousel__slide">
+                            <img class="enable-carousel__background" src="http://localhost:8080/images/carousel-example/00-turkish-spider-man.jpg"
+                                alt="Bootleg versions of Spider-Man, Captain America and El Santo fighting." >
+                            <div class="enable-carousel__slide-copy  enable-carousel__slide-copy--variation1">
+                                <h2 id="slide01-title" class="enable-carousel__slide-heading" lang="tr">3 Dev Adam</h2>
+                                <p>Also known as <em>Turkish Spider-Man</em>, this 1973 is the story of crime boss
+                                    Spider-Man's battle with law enforcement heros Captain America and El Santo.</p>
+                                <a class="enable-carousel__slide-cta" href="https://en.wikipedia.org/wiki/3_Dev_Adam"
+                                    aria-describedby="slide01-title">Learn More</a>
+                            </div>
+                        </div>
+                        <div class="enable-carousel__slide">
+                            <img class="enable-carousel__background" src="http://localhost:8080/images/carousel-example/02-turkish-star-wars.jpg"
+                                alt="Cüneyt Arkın kicking and fighting two beasts that look like they are in low budget furry costumes, while a woman being held by one of them looks on in awe." >
+                            <div class="enable-carousel__slide-copy enable-carousel__slide-copy--variation2">
+                                <h2 id="slide02-title" class="enable-carousel__slide-heading" lang="tr">Dünyayı Kurtaran
+                                    Adam
+                                </h2>
+                                <p>Two space fighters crash into a desert planet and fights a mysterious Wizard who is
+                                    enslaving
+                                    the local population.</p>
+                                <a class="enable-carousel__slide-cta"
+                                    href="https://en.wikipedia.org/wiki/D%C3%BCnyay%C4%B1_Kurtaran_Adam">Learn More <span                                     class="sr-only">about <span lang="tr">Dünyayı Kurtaran
+                                            Adam</span></span></a>
+                            </div>
+                        </div>
+                        <div class="enable-carousel__slide">
+                            <img class="enable-carousel__background" src="http://localhost:8080/images/carousel-example/01-samurai-cop.jpg"
+                                alt="A man with a mullet and a maniacal face holding a sword in the middle of a field." >
+                            <div class="enable-carousel__slide-copy">
+                                <h2 id="slide03-title" class="enable-carousel__slide-heading">Samurai Cop</h2>
+                                <p>The story of a cop with an epic mullet and a samuari sword who, along with his cool
+                                    parner, take on a gang of cocaine smugglers in early '90's Los Angeles.
+                                </p>
+                                <a class="enable-carousel__slide-cta" href="https://en.wikipedia.org/wiki/Samurai_Cop"
+                                    aria-describedby="slide03-title">Learn More</a>
+                            </div>
+                        </div>
+                        <div class="enable-carousel__slide">
+                            <img class="enable-carousel__background" src="http://localhost:8080/images/carousel-example/03-lady-terminator.jpg"
+                                alt="An angry woman looking straight at the viewer with a gun blasting rounds in the same direction." >
+                            <div class="enable-carousel__slide-copy">
+                                <h2 id="slide04-title" class="enable-carousel__slide-heading">Lady Terminator</h2>
+                                <p>
+                                    A woman is possessed by the legendary South Sea Queen to have revenge on the daughter of
+                                    a man who stole her snake a hundred years before.
+                                </p>
+                                <a class="enable-carousel__slide-cta" href="https://en.wikipedia.org/wiki/Lady_Terminator"
+                                    aria-describedby="slide04-title">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <button class="glider-prev" tabindex="-1" aria-hidden="true">«</button>
+                    <button class="glider-next" tabindex="-1" aria-hidden="true">»</button>
+                    <div role="tablist" class="dots"></div>
+                </div>
+    
+                <div class="enable-mobile-visible-on-focus__container  enable-skip-link--end">
+                    <a href="#beginning-of-component-1" id="end-of-component-1"
+                        class="enable-mobile-visible-on-focus enable-skip-link">Skip to
+                        beginning of promotional links</a>
+                </div>
+            </div>
 
 
-    <script type="application/json" id="global-props">
+        </main>
+
+        <script type="application/json" id="global-props">
     {
         "closeButtonAlt": "Close Button"
     }
     </script>
-</body>
+    </body>
 
 </html>

@@ -224,14 +224,16 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.scss', '.css'],
+    extensions: ['.js', '.jsx', '.scss', '.css', '*.html'],
     modules: [
       path.resolve('./src/js'),
       path.resolve('./node_modules')
     ],
     alias: {
       '~enable-a11y': path.resolve(__dirname, 'node_modules/enable-a11y'),
-      '../libs/accessibility-js-routines/dist/accessibility.module.js': path.resolve(__dirname, 'node_modules/accessibility-js-routines/dist/accessibility.module')
+      '~glider-js': path.resolve(__dirname, 'node_modules/glider-js'),
+      '../libs/accessibility-js-routines/dist/accessibility.module.js': path.resolve(__dirname, 'node_modules/accessibility-js-routines/dist/accessibility.module'),
+      '../../libs/glider-js/glider.js': path.resolve(__dirname, 'node_modules/glider-js/glider')
     },
     // polyfill for fallbacks
     fallback: {

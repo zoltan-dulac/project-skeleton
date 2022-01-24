@@ -1,0 +1,21 @@
+
+@import 'config';
+@import '~glider-js/glider';
+@import '~enable-a11y/css/enable-carousel';
+@import '~enable-a11y/css/enable-visible-on-focus';
+
+[data-component="Carousel"] {
+  width: 1024px;
+
+  h2 {
+    font-weight: bold;
+    font-size: 1.5rem;
+    border-bottom: solid 1px #999999;
+    margin: 0 0 1rem 0;
+  }
+
+  p {
+    margin: 0.5rem 0;
+    line-height: 1.5;
+  }
+} 
