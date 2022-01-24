@@ -2,7 +2,21 @@
 @import 'config';
 @import '~enable-a11y/css/enable-listbox';
 
-.enable-listbox [role="listbox"] {
-  width: 300px;
-  z-index: 3;
+.enable-listbox {
+
+  &__button {
+    white-space: nowrap;
+    width: fit-content !important;
+    padding-right: 40px;
+  }
+
+  [role="listbox"] {
+    width: fit-content;
+    z-index: 3;
+  }
+
+  [role="option"] {
+    white-space: nowrap;
+    padding-right: 40px;
+  }
 }
