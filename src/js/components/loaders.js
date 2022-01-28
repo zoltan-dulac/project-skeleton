@@ -16,5 +16,8 @@ components.Combobox = require('components/Combobox/loader.js').default;
 components.Carousel = require('components/Carousel/loader.js').default;
 components.Drawer = require('components/Drawer/loader.js').default;
 components.Listbox = require('components/Listbox/loader.js').default;
+components.Slider = require('components/Slider/loader.js').default;
+components.PaginationTable = require('components/PaginationTable/loader.js').default;
+components.PauseAnimControl = require('components/PauseAnimControl/loader.js').default;
 
 export default components;

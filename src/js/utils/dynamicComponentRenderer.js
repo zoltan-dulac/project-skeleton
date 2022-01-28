@@ -16,11 +16,16 @@ export default function DynamicComponentRenderer() {
       node.hasAttribute('data-component');
   };
 
+  const ignoreMutations = function(node) {
+    return node.hasAttribute('data-ignore-mutations');
+  };
+
   const formatNode = function formatNode(node) {
     if (node && node.hasAttribute && !(node.hasAttribute(dynamicallyRenderedAttribute)) && node.nodeType === 1 && nodeToIgnoreArr.indexOf(node.tagName.toLowerCase()) < 0) {
       const nodeIsReactComponent = isReactComponentNode(node);
+      const nodeIgnoreMutations = ignoreMutations(node);
 
-      if (nodeIsReactComponent) {
+      if (nodeIsReactComponent && nodeIgnoreMutations) {
         const componentName = node.getAttribute('data-component');
 
         const props = (node.getAttribute('data-props')) ? jsonSafeParse(node.getAttribute('data-props')) : {};
@@ -80,6 +85,8 @@ export default function DynamicComponentRenderer() {
 
     // create an observer instance
     const observer = new MutationObserver(function(mutations) {
+      // eslint-disable-next-line no-console
+      console.log('mutant!');
       const fnNodeListToArray = function(nodeList, node) {
         let nodeArr = [];
 

@@ -1,0 +1,9 @@
+
+@import 'config';
+@import '~enable-a11y/css/paginate';
+
+.pagination {
+  &__table {
+    margin: 0 auto;
+  }
+}
