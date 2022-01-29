@@ -30,12 +30,13 @@ module.exports = {
     // This is just for demo purposes.  Things like this should be in the CMS.
     // images: './src/images/product-example.jpg'
   },
-  cache: false, /* {
-    type: 'filesystem',
-    buildDependencies: {
-      config: [__filename]
-    }
-  },*/
+  cache: false,
+  /* {
+     type: 'filesystem',
+     buildDependencies: {
+       config: [__filename]
+     }
+   },*/
   // Source map generation: https://webpack.js.org/guides/development/#using-source-maps
   // 'cheap-module-eval-source-map'
   devtool: 'inline-source-map',
@@ -102,27 +103,24 @@ module.exports = {
     minimize: false
   },
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         // loader: 'babel-loader'
-        use: [
-          {
-            loader: 'babel-loader',
-            // from https://stackoverflow.com/questions/62703393/support-for-the-experimental-jsx-isnt-currently-enabled
-            options: {
-              presets: [
-                '@babel/preset-env',
-                '@babel/preset-react', {
-                  'plugins': [
-                    ["@babel/plugin-proposal-class-properties", { "loose": true }]
-                  ]
-                }
-              ]
-            }
+        use: [{
+          loader: 'babel-loader',
+          // from https://stackoverflow.com/questions/62703393/support-for-the-experimental-jsx-isnt-currently-enabled
+          options: {
+            presets: [
+              '@babel/preset-env',
+              '@babel/preset-react', {
+                'plugins': [
+                  ["@babel/plugin-proposal-class-properties", { "loose": true }]
+                ]
+              }
+            ]
           }
-        ]
+        }]
       },
       /*
       {
@@ -134,11 +132,9 @@ module.exports = {
       },*/
       {
         test: /\.html$/,
-        use: [
-          {
-            loader: 'html-loader'
-          }
-        ]
+        use: [{
+          loader: 'html-loader'
+        }]
       },
 
       {
@@ -185,7 +181,7 @@ module.exports = {
             limit: 50000,
             mimetype: 'application/font-woff',
             name: './fonts/[name].[ext]'
-            // publicPath: '../'
+              // publicPath: '../'
           }
         },
         type: 'javascript/auto'
@@ -233,7 +229,8 @@ module.exports = {
       '~enable-a11y': path.resolve(__dirname, 'node_modules/enable-a11y'),
       '~glider-js': path.resolve(__dirname, 'node_modules/glider-js'),
       '../libs/accessibility-js-routines/dist/accessibility.module.js': path.resolve(__dirname, 'node_modules/accessibility-js-routines/dist/accessibility.module'),
-      '../../libs/glider-js/glider.js': path.resolve(__dirname, 'node_modules/glider-js/glider')
+      '../../libs/glider-js/glider.js': path.resolve(__dirname, 'node_modules/glider-js/glider'),
+      '../../libs/jquery/dist/jquery.min.js': path.resolve(__dirname, 'node_modules/jquery/src/jquery')
     },
     // polyfill for fallbacks
     fallback: {

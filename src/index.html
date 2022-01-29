@@ -1,897 +1,958 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <title>Product Landing Page</title>
-  <link rel="stylesheet" href="~enable-a11y/css/shared/a11y" />
-</head>
+  <head>
+    <meta charset="utf-8">
+    <title>Product Landing Page</title>
+    <link rel="stylesheet" href="~enable-a11y/css/shared/a11y" />
+  </head>
 
-<body>
+  <body>
 
-  <main>
+    <main>
 
 
-    <div id="my-switch" data-component="Switch" data-props-id="switch-props">
+      <div id="my-switch" data-component="Switch" data-props-id="switch-props">
 
-    </div>
-    <script id="switch-props" type="application/json">
-      {
-        "id": "speaker-power",
-        "labels": {
-          "off": "off",
-          "on": "on",
-          "main": "Speaker power"
+      </div>
+      <script id="switch-props" type="application/json">
+        {
+          "id": "speaker-power",
+          "labels": {
+            "off": "off",
+            "on": "on",
+            "main": "Speaker power"
+          }
         }
-      }
-    </script>
-    <div data-component="Drawer">
-      <div class="enable-drawer">
-        <button id="enable-drawer1" class="enable-drawer__button" aria-controls="enable-drawer1__content">
+      </script>
+      <div data-component="Drawer">
+        <div class="enable-drawer">
+          <button id="enable-drawer1" class="enable-drawer__button" aria-controls="enable-drawer1__content">
 
-                    What is Bruce Le?
+          What is Bruce Le?
 
-                </button>
-        <div id="enable-drawer1__content" class="enable-drawer__content" role="region">
+        </button>
+          <div id="enable-drawer1__content" class="enable-drawer__content" role="region">
 
-          Bruce Le is a Bruce Lee impersonator.
+            Bruce Le is a Bruce Lee impersonator.
 
+          </div>
         </div>
       </div>
-    </div>
 
-    <div data-component="Listbox" data-props-id="listbox-props"></div>
-    <script type="application/json" id="listbox-props">
-      {
-        "id": "provinces",
-        "label": "Choose a province",
-        "defaultDisplay": "Choose one",
-        "values": [{
-          "display": "Newfoundland and Labrador",
-          "value": "NL"
-        }, {
-          "display": "Prince Edward Island",
-          "value": "PE"
-        }, {
-          "display": "Nova Scotia",
-          "value": "NS"
-        }, {
-          "display": "New Brunswick",
-          "value": "NB"
-        }, {
-          "display": "Quebec",
-          "value": "QC"
-        }, {
-          "display": "Ontario",
-          "value": "ON"
-        }, {
-          "display": "Manitoba",
-          "value": "MB"
-        }, {
-          "display": "Saskatchewan",
-          "value": "SK"
-        }, {
-          "display": "Alberta",
-          "value": "AB"
-        }, {
-          "display": "British Columbia",
-          "value": "BC"
-        }, {
-          "display": "Yukon",
-          "value": "YT"
-        }, {
-          "display": "Northwest Territories",
-          "value": "NT"
-        }, {
-          "display": "Nunavut",
-          "value": "NU"
-        }]
-      }
-    </script>
-    <template id="listbox__main">
-            <div class="enable-listbox listbox-area">
-                <div class="left-area">
-                    <span id="${id}" class="enable-listbox__${id}">
-                        ${label}:
-                    </span>
-                    <div id="${id}_wrapper" class="enable-listbox__wrapper">
-                        <button aria-haspopup="listbox" aria-expanded="false" aria-labelledby="${id} exp_button"
-                            id="exp_button" class="enable-listbox__button">
-                            ${defaultDisplay}
-                        </button>
-                        <ul id="${id}_list" class="hidden" tabindex="-1" role="listbox" aria-labelledby="${id}">
-                            <!-- This is where the listbox values will go -->
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </template>
+      <div data-component="Listbox" data-props-id="listbox-props"></div>
+      <script type="application/json" id="listbox-props">
+        {
+          "id": "provinces",
+          "label": "Choose a province",
+          "defaultDisplay": "Choose one",
+          "values": [{
+            "display": "Newfoundland and Labrador",
+            "value": "NL"
+          }, {
+            "display": "Prince Edward Island",
+            "value": "PE"
+          }, {
+            "display": "Nova Scotia",
+            "value": "NS"
+          }, {
+            "display": "New Brunswick",
+            "value": "NB"
+          }, {
+            "display": "Quebec",
+            "value": "QC"
+          }, {
+            "display": "Ontario",
+            "value": "ON"
+          }, {
+            "display": "Manitoba",
+            "value": "MB"
+          }, {
+            "display": "Saskatchewan",
+            "value": "SK"
+          }, {
+            "display": "Alberta",
+            "value": "AB"
+          }, {
+            "display": "British Columbia",
+            "value": "BC"
+          }, {
+            "display": "Yukon",
+            "value": "YT"
+          }, {
+            "display": "Northwest Territories",
+            "value": "NT"
+          }, {
+            "display": "Nunavut",
+            "value": "NU"
+          }]
+        }
+      </script>
+      <template id="listbox__main">
+      <div class="enable-listbox listbox-area">
+        <div class="left-area">
+          <span id="${id}"
+            class="enable-listbox__${id}">
+            ${label}:
+          </span>
+          <div id="${id}_wrapper"
+            class="enable-listbox__wrapper">
+            <button aria-haspopup="listbox"
+              aria-expanded="false"
+              aria-labelledby="${id} exp_button"
+              id="exp_button"
+              class="enable-listbox__button">
+              ${defaultDisplay}
+            </button>
+            <ul id="${id}_list"
+              class="hidden"
+              tabindex="-1"
+              role="listbox"
+              aria-labelledby="${id}">
+              <!-- This is where the listbox values will go -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </template>
 
-    <template id="listbox__item">
-            <li data-value="${value}" role="option" aria-selected="false">
-                ${display}
-            </li>
-        </template>
+      <template id="listbox__item">
+      <li data-value="${value}"
+        role="option"
+        aria-selected="false">
+        ${display}
+      </li>
+    </template>
 
-    <div id="tooltip-test" data-component="Tooltip">
-      <p>
-        <a href="/" data-tooltip="This tooltip is accessible!">
-                    This link has a tooltip
-                </a>
-        <label for="input-tooltip-example">
-                    and so does this input field:
-                </label>
-        <input id="input-tooltip-example" type="text" data-tooltip="You can put tooltips on any focusable
+      <div id="tooltip-test" data-component="Tooltip">
+        <p>
+          <a href="/" data-tooltip="This tooltip is accessible!">
+          This link has a tooltip
+        </a>
+          <label for="input-tooltip-example">
+          and so does this input field:
+        </label>
+          <input id="input-tooltip-example" type="text" data-tooltip="You can put tooltips on any focusable
                         item.">
-      </p>
-    </div>
-
-    <div id="tabs-test" data-component="Tabs" data-props-id="tabs-props">
-      <div id="tabs">
-
-
-        <div class="sr-only tabs__instructions" id="tabs-keyboard-only-instructions">
-          Use arrow keys to choose tabs. Content for the chosen tab will be revealed below.
-        </div>
-
-        <ul class="enable-tablist" data-keyboard-only-instructions="tabs-keyboard-only-instructions">
-        </ul>
-
-        <div class="tabpanels"></div>
-
+        </p>
       </div>
-    </div>
 
-    <script id="tabs-props" type="application/json">
-      {
-        "id": "tab-test-1",
-        "tabs": [{
-          "label": "The first",
-          "content": "This is the first panel"
-        }, {
-          "label": "The Second",
-          "content": "The second panel is nicer"
-        }, {
-          "label": "The third",
-          "content": "What were you expecting?"
-        }]
-      }
-    </script>
-    <template id="enable-tab__template">
-            <li>
-                <a href="#heading__${id}" class="enable-tab" data-owns="tabpanel__${id}--${index}">
-                    ${label}
-                </a>
-            </li>
-        </template>
-
-    <template id="enable-tabpanel__template">
-            <div lass="enable-tabpanel" id="tabpanel__${id}--${index}">
-                <h2 tabindex="-1" id="heading__${id}">${label}</h2>
-
-                <div class="tab__content">
-                    ${content}
-                </div>
-            </div>
-        </template>
+      <div id="tabs-test" data-component="Tabs" data-props-id="tabs-props">
+        <div id="tabs">
 
 
-    <!-- Sortable table -->
-    <div data-component="SortableTable">
-      <div id="sortable-table" class="deque-table-sortable-group">
-        <div id="user-info-table__sort-instructions">
-          Click the table heading buttons to sort the table by the data in its column.
+          <div class="sr-only tabs__instructions" id="tabs-keyboard-only-instructions">
+            Use arrow keys to choose tabs. Content for the chosen tab will be revealed below.
+          </div>
+
+          <ul class="enable-tablist" data-keyboard-only-instructions="tabs-keyboard-only-instructions">
+          </ul>
+
+          <div class="tabpanels"></div>
+
         </div>
-        <table id="user-info-table" class="deque-table-sortable" role="grid" aria-readonly="true" data-aria-live-update="The table ${caption} is now
+      </div>
+
+      <script id="tabs-props" type="application/json">
+        {
+          "id": "tab-test-1",
+          "tabs": [{
+            "label": "The first",
+            "content": "This is the first panel"
+          }, {
+            "label": "The Second",
+            "content": "The second panel is nicer"
+          }, {
+            "label": "The third",
+            "content": "What were you expecting?"
+          }]
+        }
+      </script>
+      <template id="enable-tab__template">
+      <li>
+        <a href="#heading__${id}"
+          class="enable-tab"
+          data-owns="tabpanel__${id}--${index}">
+          ${label}
+        </a>
+      </li>
+    </template>
+
+      <template id="enable-tabpanel__template">
+      <div lass="enable-tabpanel"
+        id="tabpanel__${id}--${index}">
+        <h2 tabindex="-1"
+          id="heading__${id}">${label}</h2>
+
+        <div class="tab__content">
+          ${content}
+        </div>
+      </div>
+    </template>
+
+
+      <!-- Sortable table -->
+      <div data-component="SortableTable">
+        <div id="sortable-table" class="deque-table-sortable-group">
+          <div id="user-info-table__sort-instructions">
+            Click the table heading buttons to sort the table by the data in its column.
+          </div>
+          <table id="user-info-table" class="deque-table-sortable" role="grid" aria-readonly="true" data-aria-live-update="The table ${caption} is now
                         ${sortedBy}" data-ascending-label="Sorted in ascending
                         order" data-descending-label="Sorted in descending order">
-          <caption>
-            User Information
-          </caption>
-          <thead>
-            <tr>
-              <th scope="col" aria-sort="ascending">
-                <button class="sortableColumnLabel" aria-describedby="user-info-table__sort-instructions" tabindex="0" aria-label="Name, Sorted in
+            <caption>
+              User Information
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col" aria-sort="ascending">
+                  <button class="sortableColumnLabel" aria-describedby="user-info-table__sort-instructions" tabindex="0" aria-label="Name, Sorted in
                                         ascending
                                         order">
-                                    Name
-                                </button>
-              </th>
-              <th scope="col">
-                <button class="sortableColumnLabel" aria-describedby="user-info-table__sort-instructions" tabindex="0">
-                                    Age
-                                </button>
-              </th>
-              <th scope="col">
-                <button class="sortableColumnLabel" aria-describedby="user-info-table__sort-instructions" tabindex="0">
-                                    Favorite Color
-                                </button>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr role="row">
-              <th scope="row" role="rowheader">
-                Caitlin
-              </th>
-              <td role="gridcell">
-                21
-              </td>
-              <td role="gridcell">
-                Red
-              </td>
-            </tr>
-            <tr role="row">
-              <th scope="row" role="rowheader">
-                Cyan
-              </th>
-              <td role="gridcell">
-                35
-              </td>
-              <td role="gridcell">
-                Burgundy
-              </td>
-            </tr>
-            <tr role="row">
-              <th scope="row" role="rowheader">
-                Greg
-              </th>
-              <td role="gridcell">
-                45
-              </td>
-              <td role="gridcell">
-                Orange
-              </td>
-            </tr>
-            <tr role="row">
-              <th scope="row" role="rowheader">
-                Hannah
-              </th>
-              <td role="gridcell">
-                28
-              </td>
-              <td role="gridcell">
-                Blue
-              </td>
-            </tr>
-            <tr role="row">
-              <th scope="row" role="rowheader">
-                Myk
-              </th>
-              <td role="gridcell">
-                33
-              </td>
-              <td role="gridcell">
-                Purple
-              </td>
-            </tr>
-            <tr role="row">
-              <th scope="row" role="rowheader">
-                Salim
-              </th>
-              <td role="gridcell">
-                7
-              </td>
-              <td role="gridcell">
-                Green
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <span class="deque-table-sortable__live-region sr-only" aria-live="assertive" data-read-captions="false">
-                    The table User Information is now sorted by Name, Sorted
-                    in ascending order
-                </span>
-      </div>
-    </div>
-
-    <div data-component="SpinButton" data-id="age" data-min="0" data-max="100" data-inc="10" data-value="50">
-    </div>
-
-    <div data-component="RadioGroup">
-      <div role="radiogroup" aria-labelledby="alert1" class="enable-custom-radiogroup aria-form-group">
-        <p id="alert1" class="legend">
-          Send an alert when balance exceeds $ 3,000
-        </p>
-        <div>
-          <span role="radio" aria-checked="false" tabindex="0" aria-labelledby="a1r1" data-name="a1radio">
-                    </span>
-          <span id="a1r1" class="aria-radio-label">
-                        Yes
-                    </span>
-        </div>
-        <div>
-          <span role="radio" aria-checked="false" tabindex="0" aria-labelledby="a1r2" data-name="a1radio">
-                    </span>
-          <span id="a1r2" class="aria-radio-label">
-                        No
-                    </span>
+                  Name
+                </button>
+                </th>
+                <th scope="col">
+                  <button class="sortableColumnLabel" aria-describedby="user-info-table__sort-instructions" tabindex="0">
+                  Age
+                </button>
+                </th>
+                <th scope="col">
+                  <button class="sortableColumnLabel" aria-describedby="user-info-table__sort-instructions" tabindex="0">
+                  Favorite Color
+                </button>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr role="row">
+                <th scope="row" role="rowheader">
+                  Caitlin
+                </th>
+                <td role="gridcell">
+                  21
+                </td>
+                <td role="gridcell">
+                  Red
+                </td>
+              </tr>
+              <tr role="row">
+                <th scope="row" role="rowheader">
+                  Cyan
+                </th>
+                <td role="gridcell">
+                  35
+                </td>
+                <td role="gridcell">
+                  Burgundy
+                </td>
+              </tr>
+              <tr role="row">
+                <th scope="row" role="rowheader">
+                  Greg
+                </th>
+                <td role="gridcell">
+                  45
+                </td>
+                <td role="gridcell">
+                  Orange
+                </td>
+              </tr>
+              <tr role="row">
+                <th scope="row" role="rowheader">
+                  Hannah
+                </th>
+                <td role="gridcell">
+                  28
+                </td>
+                <td role="gridcell">
+                  Blue
+                </td>
+              </tr>
+              <tr role="row">
+                <th scope="row" role="rowheader">
+                  Myk
+                </th>
+                <td role="gridcell">
+                  33
+                </td>
+                <td role="gridcell">
+                  Purple
+                </td>
+              </tr>
+              <tr role="row">
+                <th scope="row" role="rowheader">
+                  Salim
+                </th>
+                <td role="gridcell">
+                  7
+                </td>
+                <td role="gridcell">
+                  Green
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <span class="deque-table-sortable__live-region sr-only" aria-live="assertive" data-read-captions="false">
+          The table User Information is now sorted by Name, Sorted
+          in ascending order
+        </span>
         </div>
       </div>
-    </div>
 
-    <div data-component="Checkbox" data-id="i-agree" data-value="false" data-label="I agree to sell my soul to Zoltan"></div>
-
-    <div data-component="Combobox" data-props-id="Combobox-props"></div>
-    <script id="Combobox-props" type="application/json">
-      {
-        "id": "movies",
-        "label": "Search for a film in our database:",
-        "sr-instructions": "As you type, press the enter key or use the up and down arrow keys to choose the autocomplete items.",
-        "autocomplete": [
-          "The Room",
-          "Plan 9 From Outer Space",
-          "Queen Kong",
-          "Samurai Cop",
-          "Killing American Style",
-          "Troll 2",
-          "Anaconda",
-          "Barabarella",
-          "Clockwork Orange",
-          "Zuma"
-        ]
-      }
-    </script>
-    <template id="combobox__main">
-            <form>
-                <div class="enable-combobox">
-                    <label id="${id}__label" for="${id}">
-                        ${label}
-                    </label>
-                    <div class="enable-combobox__inner-container">
-                        <div class="enable-combobox__controls-container">
-                            <div role="status" aria-atomic="true">
-                            </div>
-                            <input type="text" id="${id}" aria-describedby="${id}__desc" role="combobox"
-                                aria-autocomplete="list" aria-owns="${id}__list" aria-expanded="false"
-                                autocomplete="off" autocorrect="off" autocapitalize="none" required>
-                            <button class="enable-combobox__reset-button" aria-controls="${id}" type="reset"
-                                aria-describedby="${id}__label">
-                                <img class="enable-combobox__reset-button-image"
-                                    src="http://localhost:8080/images/close-window.svg" alt="Clear">
-                            </button>
-                            <ul role="listbox" id="${id}__list" tabindex="-1" hidden>
-
-
-                            </ul>
-                        </div>
-                        <div class="sr-only" id="${id}__desc">
-                            ${sr-instructions}
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </template>
-    <template id="combobox__item">
-            <li role="option" value="${value}">
-                ${value}
-            </li>
-        </template>
-
-
-    <div data-component="Carousel" data-props-id="carousel-props">
-      <div class="enable-mobile-visible-on-focus__container
-                    enable-skip-link--begin">
-        <a href="#end-of-component-1" id="beginning-of-component-1" class="enable-mobile-visible-on-focus enable-skip-link">
-                    Skip to end of promotional links
-                </a>
+      <div data-component="SpinButton" data-id="age" data-min="0" data-max="100" data-inc="10" data-value="50">
       </div>
 
-      <div class="glider-contain">
-        <div class="glider">
-          <div class="enable-carousel__slide">
-            <img class="enable-carousel__background" src="http://localhost:8080/images/carousel-example/00-turkish-spider-man.jpg" alt="Bootleg versions of Spider-Man, Captain
-                                America and El Santo fighting.">
-            <div class="enable-carousel__slide-copy
-                                enable-carousel__slide-copy--variation1">
-              <h2 id="slide01-title" class="enable-carousel__slide-heading" lang="tr">3 Dev Adam</h2>
-              <p>Also known as <em>Turkish Spider-Man</em>, this 1973 is the story of crime boss Spider-Man's battle with law enforcement heros Captain America and El Santo.</p>
-              <a class="enable-carousel__slide-cta" href="https://en.wikipedia.org/wiki/3_Dev_Adam" aria-describedby="slide01-title">Learn More</a>
+      <div data-component="RadioGroup">
+        <div role="radiogroup" aria-labelledby="alert1" class="enable-custom-radiogroup aria-form-group">
+          <p id="alert1" class="legend">
+            Send an alert when balance exceeds $ 3,000
+          </p>
+          <div>
+            <span role="radio" aria-checked="false" tabindex="0" aria-labelledby="a1r1" data-name="a1radio">
+          </span>
+            <span id="a1r1" class="aria-radio-label">
+            Yes
+          </span>
+          </div>
+          <div>
+            <span role="radio" aria-checked="false" tabindex="0" aria-labelledby="a1r2" data-name="a1radio">
+          </span>
+            <span id="a1r2" class="aria-radio-label">
+            No
+          </span>
+          </div>
+        </div>
+      </div>
+
+      <div data-component="Checkbox" data-id="i-agree" data-value="false" data-label="I agree to sell my soul to Zoltan"></div>
+
+      <div data-component="Combobox" data-props-id="Combobox-props"></div>
+      <script id="Combobox-props" type="application/json">
+        {
+          "id": "movies",
+          "label": "Search for a film in our database:",
+          "sr-instructions": "As you type, press the enter key or use the up and down arrow keys to choose the autocomplete items.",
+          "autocomplete": [
+            "The Room",
+            "Plan 9 From Outer Space",
+            "Queen Kong",
+            "Samurai Cop",
+            "Killing American Style",
+            "Troll 2",
+            "Anaconda",
+            "Barabarella",
+            "Clockwork Orange",
+            "Zuma"
+          ]
+        }
+      </script>
+      <template id="combobox__main">
+      <form>
+        <div class="enable-combobox">
+          <label id="${id}__label"
+            for="${id}">
+            ${label}
+          </label>
+          <div class="enable-combobox__inner-container">
+            <div class="enable-combobox__controls-container">
+              <div role="status"
+                aria-atomic="true">
+              </div>
+              <input type="text"
+                id="${id}"
+                aria-describedby="${id}__desc"
+                role="combobox"
+                aria-autocomplete="list"
+                aria-owns="${id}__list"
+                aria-expanded="false"
+                autocomplete="off"
+                autocorrect="off"
+                autocapitalize="none"
+                required>
+              <button class="enable-combobox__reset-button"
+                aria-controls="${id}"
+                type="reset"
+                aria-describedby="${id}__label">
+                <img class="enable-combobox__reset-button-image"
+                  src="http://localhost:8080/images/close-window.svg"
+                  alt="Clear">
+              </button>
+              <ul role="listbox"
+                id="${id}__list"
+                tabindex="-1"
+                hidden>
+
+
+              </ul>
+            </div>
+            <div class="sr-only"
+              id="${id}__desc">
+              ${sr-instructions}
             </div>
           </div>
-          <div class="enable-carousel__slide">
-            <img class="enable-carousel__background" src="http://localhost:8080/images/carousel-example/02-turkish-star-wars.jpg" alt="Cüneyt Arkın kicking and fighting two
+        </div>
+      </form>
+    </template>
+      <template id="combobox__item">
+      <li role="option"
+        value="${value}">
+        ${value}
+      </li>
+    </template>
+
+
+      <div data-component="Carousel" data-props-id="carousel-props">
+        <div class="enable-mobile-visible-on-focus__container
+                    enable-skip-link--begin">
+          <a href="#end-of-component-1" id="beginning-of-component-1" class="enable-mobile-visible-on-focus enable-skip-link">
+          Skip to end of promotional links
+        </a>
+        </div>
+
+        <div class="glider-contain">
+          <div class="glider">
+            <div class="enable-carousel__slide">
+              <img class="enable-carousel__background" src="http://localhost:8080/images/carousel-example/00-turkish-spider-man.jpg" alt="Bootleg versions of Spider-Man, Captain
+                                America and El Santo fighting.">
+              <div class="enable-carousel__slide-copy
+                                enable-carousel__slide-copy--variation1">
+                <h2 id="slide01-title" class="enable-carousel__slide-heading" lang="tr">3 Dev Adam</h2>
+                <p>Also known as <em>Turkish Spider-Man</em>, this 1973 is the story of crime boss Spider-Man's battle with law enforcement heros Captain America and El Santo.</p>
+                <a class="enable-carousel__slide-cta" href="https://en.wikipedia.org/wiki/3_Dev_Adam" aria-describedby="slide01-title">Learn More</a>
+              </div>
+            </div>
+            <div class="enable-carousel__slide">
+              <img class="enable-carousel__background" src="http://localhost:8080/images/carousel-example/02-turkish-star-wars.jpg" alt="Cüneyt Arkın kicking and fighting two
                                 beasts that look like they are in low budget
                                 furry costumes, while a woman being held by one
                                 of them looks on in awe.">
-            <div class="enable-carousel__slide-copy
+              <div class="enable-carousel__slide-copy
                                 enable-carousel__slide-copy--variation2">
-              <h2 id="slide02-title" class="enable-carousel__slide-heading" lang="tr">Dünyayı Kurtaran Adam
-              </h2>
-              <p>Two space fighters crash into a desert planet and fights a mysterious Wizard who is enslaving the local population.</p>
-              <a class="enable-carousel__slide-cta" href="https://en.wikipedia.org/wiki/D%C3%BCnyay%C4%B1_Kurtaran_Adam">Learn
-                                More <span class="sr-only">about <span lang="tr">Dünyayı Kurtaran
-                                        Adam</span></span></a>
+                <h2 id="slide02-title" class="enable-carousel__slide-heading" lang="tr">Dünyayı Kurtaran Adam
+                </h2>
+                <p>Two space fighters crash into a desert planet and fights a mysterious Wizard who is enslaving the local population.
+                </p>
+                <a class="enable-carousel__slide-cta" href="https://en.wikipedia.org/wiki/D%C3%BCnyay%C4%B1_Kurtaran_Adam">Learn
+                More <span class="sr-only">about <span lang="tr">Dünyayı Kurtaran
+                    Adam</span></span></a>
+              </div>
             </div>
-          </div>
-          <div class="enable-carousel__slide">
-            <img class="enable-carousel__background" src="http://localhost:8080/images/carousel-example/01-samurai-cop.jpg" alt="A man with a mullet and a maniacal face
+            <div class="enable-carousel__slide">
+              <img class="enable-carousel__background" src="http://localhost:8080/images/carousel-example/01-samurai-cop.jpg" alt="A man with a mullet and a maniacal face
                                 holding a sword in the middle of a field.">
-            <div class="enable-carousel__slide-copy">
-              <h2 id="slide03-title" class="enable-carousel__slide-heading">Samurai Cop
-              </h2>
-              <p>The story of a cop with an epic mullet and a samuari sword who, along with his cool parner, take on a gang of cocaine smugglers in early '90's Los Angeles.
-              </p>
-              <a class="enable-carousel__slide-cta" href="https://en.wikipedia.org/wiki/Samurai_Cop" aria-describedby="slide03-title">Learn More</a>
+              <div class="enable-carousel__slide-copy">
+                <h2 id="slide03-title" class="enable-carousel__slide-heading">Samurai Cop
+                </h2>
+                <p>The story of a cop with an epic mullet and a samuari sword who, along with his cool parner, take on a gang of cocaine smugglers in early '90's Los Angeles.
+                </p>
+                <a class="enable-carousel__slide-cta" href="https://en.wikipedia.org/wiki/Samurai_Cop" aria-describedby="slide03-title">Learn More</a>
+              </div>
             </div>
-          </div>
-          <div class="enable-carousel__slide">
-            <img class="enable-carousel__background" src="http://localhost:8080/images/carousel-example/03-lady-terminator.jpg" alt="An angry woman looking straight at the
+            <div class="enable-carousel__slide">
+              <img class="enable-carousel__background" src="http://localhost:8080/images/carousel-example/03-lady-terminator.jpg" alt="An angry woman looking straight at the
                                 viewer with a gun blasting rounds in the same
                                 direction.">
-            <div class="enable-carousel__slide-copy">
-              <h2 id="slide04-title" class="enable-carousel__slide-heading">Lady Terminator
-              </h2>
-              <p>
-                A woman is possessed by the legendary South Sea Queen to have revenge on the daughter of a man who stole her snake a hundred years before.
-              </p>
-              <a class="enable-carousel__slide-cta" href="https://en.wikipedia.org/wiki/Lady_Terminator" aria-describedby="slide04-title">Learn More</a>
+              <div class="enable-carousel__slide-copy">
+                <h2 id="slide04-title" class="enable-carousel__slide-heading">Lady Terminator
+                </h2>
+                <p>
+                  A woman is possessed by the legendary South Sea Queen to have revenge on the daughter of a man who stole her snake a hundred years before.
+                </p>
+                <a class="enable-carousel__slide-cta" href="https://en.wikipedia.org/wiki/Lady_Terminator" aria-describedby="slide04-title">Learn More</a>
+              </div>
             </div>
           </div>
+
+          <button class="glider-prev" tabindex="-1" aria-hidden="true">«</button>
+          <button class="glider-next" tabindex="-1" aria-hidden="true">»</button>
+          <div role="tablist" class="dots"></div>
         </div>
 
-        <button class="glider-prev" tabindex="-1" aria-hidden="true">«</button>
-        <button class="glider-next" tabindex="-1" aria-hidden="true">»</button>
-        <div role="tablist" class="dots"></div>
-      </div>
-
-      <div class="enable-mobile-visible-on-focus__container
+        <div class="enable-mobile-visible-on-focus__container
                     enable-skip-link--end">
-        <a href="#beginning-of-component-1" id="end-of-component-1" class="enable-mobile-visible-on-focus enable-skip-link">Skip
-                    to
-                    beginning of promotional links</a>
-      </div>
-    </div>
-
-
-    <!-- Slider -->
-
-    <div data-component="Slider">
-      <div id="aria-example1" class="enable-example">
-        <div id="sr1_label" class="enable-slider__label">JPEG compression factor:</div>
-
-        <div class="enable-slider enable-slider--horizontal" id="sr1" data-min="0" data-max="100" data-inc="5" data-jump="10" data-show-vals="true" data-range="false" data-val1="30">
+          <a href="#beginning-of-component-1" id="end-of-component-1" class="enable-mobile-visible-on-focus enable-skip-link">Skip
+          to
+          beginning of promotional links</a>
         </div>
       </div>
-    </div>
-    <template id="enable-slider__handle--template">
-            <div>
-                <div id="${id}" class="${classNameRoot}__handle">
-                    <div role="slider" tabindex="0" class="${classNameRoot}__handle-button" aria-valuemin="${valuemin}"
-                        aria-valuemax="${valuemax}" aria-valuenow="${valuenow}"
-                        aria-labelledby="${arialabelledby} ${id}_val" aria-describedby="${ariadescribedby}">
-                    </div>
-                    <div id="${ariadescribedby}" class="${classNameRoot}__hidden-label">
-                        Use arrow keys to adjust the slider value. Touch
-                        devices will need to swipe right to access controls
-                        to adjust
-                        the slider value.
-                    </div>
-                    <span class="enable-mobile-visible-on-focus__container
+
+
+      <!-- Slider -->
+
+      <div data-component="Slider">
+        <div id="aria-example1" class="enable-example">
+          <div id="sr1_label" class="enable-slider__label">JPEG compression factor:</div>
+
+          <div class="enable-slider enable-slider--horizontal" id="sr1" data-min="0" data-max="100" data-inc="5" data-jump="10" data-show-vals="true" data-range="false" data-val1="30">
+          </div>
+        </div>
+      </div>
+      <template id="enable-slider__handle--template">
+      <div>
+        <div id="${id}"
+          class="${classNameRoot}__handle">
+          <div role="slider"
+            tabindex="0"
+            class="${classNameRoot}__handle-button"
+            aria-valuemin="${valuemin}"
+            aria-valuemax="${valuemax}"
+            aria-valuenow="${valuenow}"
+            aria-labelledby="${arialabelledby} ${id}_val"
+            aria-describedby="${ariadescribedby}">
+          </div>
+          <div id="${ariadescribedby}"
+            class="${classNameRoot}__hidden-label">
+            Use arrow keys to adjust the slider value. Touch
+            devices will need to swipe right to access controls
+            to adjust
+            the slider value.
+          </div>
+          <span class="enable-mobile-visible-on-focus__container
                             ${classNameRoot}__button-container
                             ${classNameRoot}__button-container--decrease">
-                        <div id="${id}__decrease-label" class="${classNameRoot}__hidden-label">
-                            Decrease Value
-                        </div>
-                        <button aria-labelledby="${arialabelledby} ${id}_val
-                                ${id}__decrease-label" class="enable-mobile-visible-on-focus
+            <div id="${id}__decrease-label"
+              class="${classNameRoot}__hidden-label">
+              Decrease Value
+            </div>
+            <button aria-labelledby="${arialabelledby} ${id}_val
+                                ${id}__decrease-label"
+              class="enable-mobile-visible-on-focus
                                 ${classNameRoot}__decrease
-                                ${classNameRoot}__button" tabindex="-1">
-                            ‹
-                        </button>
-                    </span>
-                    <span class="enable-mobile-visible-on-focus__container
+                                ${classNameRoot}__button"
+              tabindex="-1">
+              ‹
+            </button>
+          </span>
+          <span class="enable-mobile-visible-on-focus__container
                             ${classNameRoot}__button-container
                             ${classNameRoot}__button-container--increase">
-                        <div id="${id}__increase-label" class="${classNameRoot}__hidden-label">
-                            Increase Value
-                        </div>
-                        <button aria-labelledby="${arialabelledby} ${id}_val
-                                ${id}__increase-label" class="enable-mobile-visible-on-focus
-                                ${classNameRoot}__increase
-                                ${classNameRoot}__button" tabindex="-1">
-                            ›
-                        </button>
-                    </span>
-                </div>
-                <div id="${id}_val" class="${classNameRoot}__value" role="alert" aria-live="assertive">
-                    ${valuenow}
-                </div>
+            <div id="${id}__increase-label"
+              class="${classNameRoot}__hidden-label">
+              Increase Value
             </div>
+            <button aria-labelledby="${arialabelledby} ${id}_val
+                                ${id}__increase-label"
+              class="enable-mobile-visible-on-focus
+                                ${classNameRoot}__increase
+                                ${classNameRoot}__button"
+              tabindex="-1">
+              ›
+            </button>
+          </span>
+        </div>
+        <div id="${id}_val"
+          class="${classNameRoot}__value"
+          role="alert"
+          aria-live="assertive">
+          ${valuenow}
+        </div>
+      </div>
+    </template>
+
+
+
+      <!-- Pagination Table -->
+
+      <div data-component="PaginationTable" data-ignore-mutations="true">
+        <div class="pagination">
+          <div id="pagination-table-example__desc--top" class="sr-only">
+            <p>
+              The buttons inside this control allow you to paginate through the data in the table below, 10 columns at a time.
+            </p>
+          </div>
+          <div class="pagination__pager" role="group" aria-labelledby="pagination-table-example__desc--top">
+          </div>
+          <figure>
+            <figcaption id="pagination-table-example__caption" class="caption">
+              Pagination Table Example: GDP of the World Nations
+            </figcaption>
+            <div class="sticky-table__container" tabindex="0">
+              <table class="pagination__table" data-pagecount="7" data-pagination-alert-template="Now dislaying rows ${n} through ${m}" data-pagination-button-spread="5" data-pagination-mobile-button-spread="4" aria-labelledby="pagination-table-example__caption">
+
+
+                <thead>
+                  <tr>
+                    <th class="text-align-left" scope="col">Country</th>
+                    <th class="text-align-left" scope="col">Military Deaths
+                    </th>
+                    <th class="text-align-left" scope="col">Total Civilian and Military Deaths</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Albania</td>
+                    <td>30,000</td>
+                    <td>30,200</td>
+                  </tr>
+                  <tr>
+                    <td>Australia</td>
+                    <td>39,800</td>
+                    <td>40,500</td>
+                  </tr>
+                  <tr>
+                    <td>Austria</td>
+                    <td>261,000</td>
+                    <td>384,700</td>
+                  </tr>
+                  <tr>
+                    <td>Belgium</td>
+                    <td>12,100</td>
+                    <td>86,100</td>
+                  </tr>
+                  <tr>
+                    <td>Brazil</td>
+                    <td>1,000</td>
+                    <td>2,000</td>
+                  </tr>
+                  <tr>
+                    <td>Bulgaria</td>
+                    <td>22,000</td>
+                    <td>25,000</td>
+                  </tr>
+                  <tr>
+                    <td>Canada</td>
+                    <td>45,400</td>
+                    <td>45,400</td>
+                  </tr>
+                  <tr>
+                    <td>China</td>
+                    <td>3-4,000,000</td>
+                    <td>20,000,000</td>
+                  </tr>
+                  <tr>
+                    <td>Czechoslovakia</td>
+                    <td>25,000</td>
+                    <td>345,000</td>
+                  </tr>
+                  <tr>
+                    <td>Denmark</td>
+                    <td>2,100</td>
+                    <td>3,200</td>
+                  </tr>
+                  <tr>
+                    <td>Dutch East Indies</td>
+                    <td>--</td>
+                    <td>3-4,000,000</td>
+                  </tr>
+                  <tr>
+                    <td>Estonia</td>
+                    <td>--</td>
+                    <td>51,000</td>
+                  </tr>
+                  <tr>
+                    <td>Ethiopia</td>
+                    <td>5,000</td>
+                    <td>100,000</td>
+                  </tr>
+                  <tr>
+                    <td>Finland</td>
+                    <td>95,000</td>
+                    <td>97,000</td>
+                  </tr>
+                  <tr>
+                    <td>France</td>
+                    <td>217,600</td>
+                    <td>567,600</td>
+                  </tr>
+                  <tr>
+                    <td>French Indochina</td>
+                    <td>--</td>
+                    <td>1-1,500,000</td>
+                  </tr>
+                  <tr>
+                    <td>Germany</td>
+                    <td>5,533,000</td>
+                    <td>6,600,000-8,800,000</td>
+                  </tr>
+                  <tr>
+                    <td>Greece</td>
+                    <td>20,000-35,000</td>
+                    <td>300,000-800,000</td>
+                  </tr>
+                  <tr>
+                    <td>Hungary</td>
+                    <td>300,000</td>
+                    <td>580,000</td>
+                  </tr>
+                  <tr>
+                    <td>India</td>
+                    <td>87,000</td>
+                    <td>1,500,000-2,500,000</td>
+                  </tr>
+                  <tr>
+                    <td>Italy</td>
+                    <td>301,400</td>
+                    <td>457,000</td>
+                  </tr>
+                  <tr>
+                    <td>Japan</td>
+                    <td>2,120,000</td>
+                    <td>2,600,000-3,100,000</td>
+                  </tr>
+                  <tr>
+                    <td>Korea</td>
+                    <td>--</td>
+                    <td>378,000-473,000</td>
+                  </tr>
+                  <tr>
+                    <td>Latvia</td>
+                    <td>--</td>
+                    <td>227,000</td>
+                  </tr>
+                  <tr>
+                    <td>Lithuania</td>
+                    <td>--</td>
+                    <td>353,000</td>
+                  </tr>
+                  <tr>
+                    <td>Luxembourg</td>
+                    <td>--</td>
+                    <td>2,000</td>
+                  </tr>
+                  <tr>
+                    <td>Malaya</td>
+                    <td>--</td>
+                    <td>100,000</td>
+                  </tr>
+                  <tr>
+                    <td>Netherlands</td>
+                    <td>17,000</td>
+                    <td>301,000</td>
+                  </tr>
+                  <tr>
+                    <td>New Zealand</td>
+                    <td>11,900</td>
+                    <td>11,900</td>
+                  </tr>
+                  <tr>
+                    <td>Norway</td>
+                    <td>3,000</td>
+                    <td>9,500</td>
+                  </tr>
+                  <tr>
+                    <td>Papua New Guinea</td>
+                    <td>--</td>
+                    <td>15,000</td>
+                  </tr>
+                  <tr>
+                    <td>Philippines</td>
+                    <td>57,000</td>
+                    <td>500,000-1,000,000</td>
+                  </tr>
+                  <tr>
+                    <td>Poland</td>
+                    <td>240,000</td>
+                    <td>5,600,000</td>
+                  </tr>
+                  <tr>
+                    <td>Romania</td>
+                    <td>300,000</td>
+                    <td>833,000</td>
+                  </tr>
+                  <tr>
+                    <td>Singapore</td>
+                    <td>--</td>
+                    <td>50,000</td>
+                  </tr>
+                  <tr>
+                    <td>South Africa</td>
+                    <td>11,900</td>
+                    <td>11,900</td>
+                  </tr>
+                  <tr>
+                    <td>Soviet Union</td>
+                    <td>8,800,000-10,700,000</td>
+                    <td>24,000,000</td>
+                  </tr>
+                  <tr>
+                    <td>United Kingdom</td>
+                    <td>383,600</td>
+                    <td>450,700</td>
+                  </tr>
+                  <tr>
+                    <td>United States</td>
+                    <td>416,800</td>
+                    <td>418,500</td>
+                  </tr>
+                  <tr>
+                    <td>Yugoslavia</td>
+                    <td>446,000</td>
+                    <td>1,000,000</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </figure>
+          <div class="pagination__alert sr-only" role="alert" aria-live="assertive">
+          </div>
+          <div id="pagination-table-example__desc--bottom" class="sr-only">
+            <p>
+              The buttons inside this control allow you to paginate through the data in the table above, 10 columns at a time.
+            </p>
+          </div>
+          <div class="pagination__pager" role="group" aria-labelledby="pagination-table-example__desc--bottom">
+          </div>
+
+
+
+          <template id="pagination__template--button">
+          <button class="pagination__pager-item ${isSelectedClass}"
+            data-index="${index}"
+            aria-label="Display page ${label} of ${totalPages}">
+            ${label}
+          </button>
+        </template>
+          <template id="pagination__template--previous-button">
+          <button class="pagination__pager-item
+                    pagination__pager-item--previous"
+            ${disabledattr}=""
+            aria-label="Display previous page"
+            data-index="${index}">
+            &lt;
+          </button>
+        </template>
+          <template id="pagination__template--next-button">
+          <button class="pagination__pager-item pagination__pager-item--next"
+            ${disabledattr}=""
+            aria-label="Display next page"
+            data-index="${index}">
+            &gt;
+          </button>
         </template>
 
+          <div data-component="PauseAnimControl">
+            <div class="play-pause-anim__checkbox-container">
+              <label for="pause-anim-control">
+              Pause animations
+              <input type="checkbox"
+                id="pause-anim-control"
+                class="pause-anim-control__checkbox">
+            </label>
+            </div>
 
-
-    <!-- Pagination Table -->
-
-    <div data-component="PaginationTable" data-ignore-mutations="true">
-      <div class="pagination">
-        <div id="pagination-table-example__desc--top" class="sr-only">
-          <p>
-            The buttons inside this control allow you to paginate through the data in the table below, 10 columns at a time.
-          </p>
-        </div>
-        <div class="pagination__pager" role="group" aria-labelledby="pagination-table-example__desc--top">
-        </div>
-        <figure>
-          <figcaption id="pagination-table-example__caption" class="caption">
-            Pagination Table Example: GDP of the World Nations
-          </figcaption>
-          <div class="sticky-table__container" tabindex="0">
-            <table class="pagination__table" data-pagecount="7" data-pagination-alert-template="Now dislaying rows ${n} through ${m}" data-pagination-button-spread="5" data-pagination-mobile-button-spread="4" aria-labelledby="pagination-table-example__caption">
-
-
-              <thead>
-                <tr>
-                  <th class="text-align-left" scope="col">Country</th>
-                  <th class="text-align-left" scope="col">Military Deaths
-                  </th>
-                  <th class="text-align-left" scope="col">Total Civilian and Military Deaths</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Albania</td>
-                  <td>30,000</td>
-                  <td>30,200</td>
-                </tr>
-                <tr>
-                  <td>Australia</td>
-                  <td>39,800</td>
-                  <td>40,500</td>
-                </tr>
-                <tr>
-                  <td>Austria</td>
-                  <td>261,000</td>
-                  <td>384,700</td>
-                </tr>
-                <tr>
-                  <td>Belgium</td>
-                  <td>12,100</td>
-                  <td>86,100</td>
-                </tr>
-                <tr>
-                  <td>Brazil</td>
-                  <td>1,000</td>
-                  <td>2,000</td>
-                </tr>
-                <tr>
-                  <td>Bulgaria</td>
-                  <td>22,000</td>
-                  <td>25,000</td>
-                </tr>
-                <tr>
-                  <td>Canada</td>
-                  <td>45,400</td>
-                  <td>45,400</td>
-                </tr>
-                <tr>
-                  <td>China</td>
-                  <td>3-4,000,000</td>
-                  <td>20,000,000</td>
-                </tr>
-                <tr>
-                  <td>Czechoslovakia</td>
-                  <td>25,000</td>
-                  <td>345,000</td>
-                </tr>
-                <tr>
-                  <td>Denmark</td>
-                  <td>2,100</td>
-                  <td>3,200</td>
-                </tr>
-                <tr>
-                  <td>Dutch East Indies</td>
-                  <td>--</td>
-                  <td>3-4,000,000</td>
-                </tr>
-                <tr>
-                  <td>Estonia</td>
-                  <td>--</td>
-                  <td>51,000</td>
-                </tr>
-                <tr>
-                  <td>Ethiopia</td>
-                  <td>5,000</td>
-                  <td>100,000</td>
-                </tr>
-                <tr>
-                  <td>Finland</td>
-                  <td>95,000</td>
-                  <td>97,000</td>
-                </tr>
-                <tr>
-                  <td>France</td>
-                  <td>217,600</td>
-                  <td>567,600</td>
-                </tr>
-                <tr>
-                  <td>French Indochina</td>
-                  <td>--</td>
-                  <td>1-1,500,000</td>
-                </tr>
-                <tr>
-                  <td>Germany</td>
-                  <td>5,533,000</td>
-                  <td>6,600,000-8,800,000</td>
-                </tr>
-                <tr>
-                  <td>Greece</td>
-                  <td>20,000-35,000</td>
-                  <td>300,000-800,000</td>
-                </tr>
-                <tr>
-                  <td>Hungary</td>
-                  <td>300,000</td>
-                  <td>580,000</td>
-                </tr>
-                <tr>
-                  <td>India</td>
-                  <td>87,000</td>
-                  <td>1,500,000-2,500,000</td>
-                </tr>
-                <tr>
-                  <td>Italy</td>
-                  <td>301,400</td>
-                  <td>457,000</td>
-                </tr>
-                <tr>
-                  <td>Japan</td>
-                  <td>2,120,000</td>
-                  <td>2,600,000-3,100,000</td>
-                </tr>
-                <tr>
-                  <td>Korea</td>
-                  <td>--</td>
-                  <td>378,000-473,000</td>
-                </tr>
-                <tr>
-                  <td>Latvia</td>
-                  <td>--</td>
-                  <td>227,000</td>
-                </tr>
-                <tr>
-                  <td>Lithuania</td>
-                  <td>--</td>
-                  <td>353,000</td>
-                </tr>
-                <tr>
-                  <td>Luxembourg</td>
-                  <td>--</td>
-                  <td>2,000</td>
-                </tr>
-                <tr>
-                  <td>Malaya</td>
-                  <td>--</td>
-                  <td>100,000</td>
-                </tr>
-                <tr>
-                  <td>Netherlands</td>
-                  <td>17,000</td>
-                  <td>301,000</td>
-                </tr>
-                <tr>
-                  <td>New Zealand</td>
-                  <td>11,900</td>
-                  <td>11,900</td>
-                </tr>
-                <tr>
-                  <td>Norway</td>
-                  <td>3,000</td>
-                  <td>9,500</td>
-                </tr>
-                <tr>
-                  <td>Papua New Guinea</td>
-                  <td>--</td>
-                  <td>15,000</td>
-                </tr>
-                <tr>
-                  <td>Philippines</td>
-                  <td>57,000</td>
-                  <td>500,000-1,000,000</td>
-                </tr>
-                <tr>
-                  <td>Poland</td>
-                  <td>240,000</td>
-                  <td>5,600,000</td>
-                </tr>
-                <tr>
-                  <td>Romania</td>
-                  <td>300,000</td>
-                  <td>833,000</td>
-                </tr>
-                <tr>
-                  <td>Singapore</td>
-                  <td>--</td>
-                  <td>50,000</td>
-                </tr>
-                <tr>
-                  <td>South Africa</td>
-                  <td>11,900</td>
-                  <td>11,900</td>
-                </tr>
-                <tr>
-                  <td>Soviet Union</td>
-                  <td>8,800,000-10,700,000</td>
-                  <td>24,000,000</td>
-                </tr>
-                <tr>
-                  <td>United Kingdom</td>
-                  <td>383,600</td>
-                  <td>450,700</td>
-                </tr>
-                <tr>
-                  <td>United States</td>
-                  <td>416,800</td>
-                  <td>418,500</td>
-                </tr>
-                <tr>
-                  <td>Yugoslavia</td>
-                  <td>446,000</td>
-                  <td>1,000,000</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </figure>
-        <div class="pagination__alert sr-only" role="alert" aria-live="assertive">
-        </div>
-        <div id="pagination-table-example__desc--bottom" class="sr-only">
-          <p>
-            The buttons inside this control allow you to paginate through the data in the table above, 10 columns at a time.
-          </p>
-        </div>
-        <div class="pagination__pager" role="group" aria-labelledby="pagination-table-example__desc--bottom">
-        </div>
-
-
-
-        <template id="pagination__template--button">
-                    <button class="pagination__pager-item ${isSelectedClass}" data-index="${index}"
-                        aria-label="Display page ${label} of ${totalPages}">
-                        ${label}
-                    </button>
-                </template>
-        <template id="pagination__template--previous-button">
-                    <button class="pagination__pager-item
-                    pagination__pager-item--previous" ${disabledattr}="" aria-label="Display previous page"
-                        data-index="${index}">
-                        &lt;
-                    </button>
-                </template>
-        <template id="pagination__template--next-button">
-                    <button class="pagination__pager-item pagination__pager-item--next" ${disabledattr}=""
-                        aria-label="Display next page" data-index="${index}">
-                        &gt;
-                    </button>
-                </template>
-
-        <div data-component="PauseAnimControl">
-          <div class="play-pause-anim__checkbox-container">
-            <label for="pause-anim-control">
-                            Pause animations
-                            <input type="checkbox" id="pause-anim-control" class="pause-anim-control__checkbox">
-                        </label>
           </div>
 
-        </div>
+          <div class="complex-css-example">
 
-        <div class="complex-css-example">
-
-          <div class="info" style="--n-data: 8">
-            <div class="stage" style="--p: 0; --n-char: 12"><span style="--idx: 0">d</span><span style="--idx: 1">o</span><span style="--idx: 2">d</span><span style="--idx: 3">e</span><span style="--idx: 4">c</span><span style="--idx: 5">a</span><span style="--idx: 6">h</span><span style="--idx: 7">e</span>
-              <span
-                style="--idx: 8">d</span><span style="--idx: 9">r</span><span style="--idx: 10">o</span><span style="--idx: 11">n</span>
+            <div class="info" style="--n-data: 8">
+              <div class="stage" style="--p: 0; --n-char: 12"><span style="--idx: 0">d</span><span style="--idx: 1">o</span><span style="--idx: 2">d</span><span style="--idx: 3">e</span><span style="--idx: 4">c</span><span style="--idx: 5">a</span><span style="--idx: 6">h</span><span style="--idx: 7">e</span>
+                <span style="--idx: 8">d</span><span style="--idx: 9">r</span><span style="--idx: 10">o</span><span style="--idx: 11">n</span>
+              </div>
+              <div class="stage" style="--p: 1; --n-char: 10"><span style="--idx: 0">r</span><span style="--idx: 1">e</span><span style="--idx: 2">c</span><span style="--idx: 3">t</span><span style="--idx: 4">i</span><span style="--idx: 5">f</span><span style="--idx: 6">y</span><span style="--idx: 7"> </span>
+                <span style="--idx: 8">t</span><span style="--idx: 9">o</span>
+              </div>
+              <div class="stage" style="--p: 2; --n-char: 17"><span style="--idx: 0">i</span><span style="--idx: 1">c</span><span style="--idx: 2">o</span><span style="--idx: 3">s</span><span style="--idx: 4">i</span><span style="--idx: 5">d</span><span style="--idx: 6">o</span><span style="--idx: 7">d</span>
+                <span style="--idx: 8">e</span><span style="--idx: 9">c</span><span style="--idx: 10">a</span><span style="--idx: 11">h</span><span style="--idx: 12">e</span><span style="--idx: 13">d</span><span style="--idx: 14">r</span><span style="--idx: 15">o</span>
+                <span style="--idx: 16">n</span>
+              </div>
+              <div class="stage" style="--p: 3; --n-char: 18"><span style="--idx: 0">r</span><span style="--idx: 1">e</span><span style="--idx: 2">v</span><span style="--idx: 3">e</span><span style="--idx: 4">r</span><span style="--idx: 5">s</span><span style="--idx: 6">e</span><span style="--idx: 7"> </span>
+                <span style="--idx: 8">r</span><span style="--idx: 9">e</span><span style="--idx: 10">c</span><span style="--idx: 11">t</span><span style="--idx: 12">i</span><span style="--idx: 13">f</span><span style="--idx: 14">y</span><span style="--idx: 15"> </span>
+                <span style="--idx: 16">t</span><span style="--idx: 17">o</span>
+              </div>
+              <div class="stage" style="--p: 4; --n-char: 11"><span style="--idx: 0">i</span><span style="--idx: 1">c</span><span style="--idx: 2">o</span><span style="--idx: 3">s</span><span style="--idx: 4">a</span><span style="--idx: 5">h</span><span style="--idx: 6">e</span><span style="--idx: 7">d</span>
+                <span style="--idx: 8">r</span><span style="--idx: 9">o</span><span style="--idx: 10">n</span>
+              </div>
+              <div class="stage" style="--p: 5; --n-char: 9"><span style="--idx: 0">e</span><span style="--idx: 1">x</span><span style="--idx: 2">p</span><span style="--idx: 3">a</span><span style="--idx: 4">n</span><span style="--idx: 5">d</span><span style="--idx: 6"> </span><span style="--idx: 7">t</span>
+                <span style="--idx: 8">o</span>
+              </div>
+              <div class="stage" style="--p: 6; --n-char: 22"><span style="--idx: 0">r</span><span style="--idx: 1">h</span><span style="--idx: 2">o</span><span style="--idx: 3">m</span><span style="--idx: 4">b</span><span style="--idx: 5">i</span><span style="--idx: 6">c</span><span style="--idx: 7">o</span>
+                <span style="--idx: 8">s</span><span style="--idx: 9">i</span><span style="--idx: 10">d</span><span style="--idx: 11">o</span><span style="--idx: 12">d</span><span style="--idx: 13">e</span><span style="--idx: 14">c</span><span style="--idx: 15">a</span>
+                <span style="--idx: 16">h</span><span style="--idx: 17">e</span><span style="--idx: 18">d</span><span style="--idx: 19">r</span><span style="--idx: 20">o</span><span style="--idx: 21">n</span>
+              </div>
+              <div class="stage" style="--p: 7; --n-char: 11"><span style="--idx: 0">c</span><span style="--idx: 1">o</span><span style="--idx: 2">l</span><span style="--idx: 3">l</span><span style="--idx: 4">a</span><span style="--idx: 5">p</span><span style="--idx: 6">s</span><span style="--idx: 7">e</span>
+                <span style="--idx: 8"> </span><span style="--idx: 9">t</span><span style="--idx: 10">o</span>
+              </div>
             </div>
-            <div class="stage" style="--p: 1; --n-char: 10"><span style="--idx: 0">r</span><span style="--idx: 1">e</span><span style="--idx: 2">c</span><span style="--idx: 3">t</span><span style="--idx: 4">i</span><span style="--idx: 5">f</span><span style="--idx: 6">y</span><span style="--idx: 7"> </span>
-              <span
-                style="--idx: 8">t</span><span style="--idx: 9">o</span>
-            </div>
-            <div class="stage" style="--p: 2; --n-char: 17"><span style="--idx: 0">i</span><span style="--idx: 1">c</span><span style="--idx: 2">o</span><span style="--idx: 3">s</span><span style="--idx: 4">i</span><span style="--idx: 5">d</span><span style="--idx: 6">o</span><span style="--idx: 7">d</span>
-              <span
-                style="--idx: 8">e</span><span style="--idx: 9">c</span><span style="--idx: 10">a</span><span style="--idx: 11">h</span><span style="--idx: 12">e</span><span style="--idx: 13">d</span><span style="--idx: 14">r</span><span style="--idx: 15">o</span>
-                <span
-                  style="--idx: 16">n</span>
-            </div>
-            <div class="stage" style="--p: 3; --n-char: 18"><span style="--idx: 0">r</span><span style="--idx: 1">e</span><span style="--idx: 2">v</span><span style="--idx: 3">e</span><span style="--idx: 4">r</span><span style="--idx: 5">s</span><span style="--idx: 6">e</span><span style="--idx: 7"> </span>
-              <span
-                style="--idx: 8">r</span><span style="--idx: 9">e</span><span style="--idx: 10">c</span><span style="--idx: 11">t</span><span style="--idx: 12">i</span><span style="--idx: 13">f</span><span style="--idx: 14">y</span><span style="--idx: 15"> </span>
-                <span
-                  style="--idx: 16">t</span><span style="--idx: 17">o</span>
-            </div>
-            <div class="stage" style="--p: 4; --n-char: 11"><span style="--idx: 0">i</span><span style="--idx: 1">c</span><span style="--idx: 2">o</span><span style="--idx: 3">s</span><span style="--idx: 4">a</span><span style="--idx: 5">h</span><span style="--idx: 6">e</span><span style="--idx: 7">d</span>
-              <span
-                style="--idx: 8">r</span><span style="--idx: 9">o</span><span style="--idx: 10">n</span>
-            </div>
-            <div class="stage" style="--p: 5; --n-char: 9"><span style="--idx: 0">e</span><span style="--idx: 1">x</span><span style="--idx: 2">p</span><span style="--idx: 3">a</span><span style="--idx: 4">n</span><span style="--idx: 5">d</span><span style="--idx: 6"> </span><span style="--idx: 7">t</span>
-              <span
-                style="--idx: 8">o</span>
-            </div>
-            <div class="stage" style="--p: 6; --n-char: 22"><span style="--idx: 0">r</span><span style="--idx: 1">h</span><span style="--idx: 2">o</span><span style="--idx: 3">m</span><span style="--idx: 4">b</span><span style="--idx: 5">i</span><span style="--idx: 6">c</span><span style="--idx: 7">o</span>
-              <span
-                style="--idx: 8">s</span><span style="--idx: 9">i</span><span style="--idx: 10">d</span><span style="--idx: 11">o</span><span style="--idx: 12">d</span><span style="--idx: 13">e</span><span style="--idx: 14">c</span><span style="--idx: 15">a</span>
-                <span
-                  style="--idx: 16">h</span><span style="--idx: 17">e</span><span style="--idx: 18">d</span><span style="--idx: 19">r</span><span style="--idx: 20">o</span><span style="--idx: 21">n</span>
-            </div>
-            <div class="stage" style="--p: 7; --n-char: 11"><span style="--idx: 0">c</span><span style="--idx: 1">o</span><span style="--idx: 2">l</span><span style="--idx: 3">l</span><span style="--idx: 4">a</span><span style="--idx: 5">p</span><span style="--idx: 6">s</span><span style="--idx: 7">e</span>
-              <span
-                style="--idx: 8"> </span><span style="--idx: 9">t</span><span style="--idx: 10">o</span>
+            <div class="a3d">
+              <div class="s2d s5gon"></div>
+              <div class="s2d s5gon"></div>
+              <div class="s2d s5gon"></div>
+              <div class="s2d s5gon"></div>
+              <div class="s2d s5gon"></div>
+              <div class="s2d s5gon"></div>
+              <div class="s2d s5gon"></div>
+              <div class="s2d s5gon"></div>
+              <div class="s2d s5gon"></div>
+              <div class="s2d s5gon"></div>
+              <div class="s2d s5gon"></div>
+              <div class="s2d s5gon"></div>
+              <div class="s2d s3gon"></div>
+              <div class="s2d s3gon"></div>
+              <div class="s2d s3gon"></div>
+              <div class="s2d s3gon"></div>
+              <div class="s2d s3gon"></div>
+              <div class="s2d s3gon"></div>
+              <div class="s2d s3gon"></div>
+              <div class="s2d s3gon"></div>
+              <div class="s2d s3gon"></div>
+              <div class="s2d s3gon"></div>
+              <div class="s2d s3gon"></div>
+              <div class="s2d s3gon"></div>
+              <div class="s2d s3gon"></div>
+              <div class="s2d s3gon"></div>
+              <div class="s2d s3gon"></div>
+              <div class="s2d s3gon"></div>
+              <div class="s2d s3gon"></div>
+              <div class="s2d s3gon"></div>
+              <div class="s2d s3gon"></div>
+              <div class="s2d s3gon"></div>
+              <div class="s2d s4gon"></div>
+              <div class="s2d s4gon"></div>
+              <div class="s2d s4gon"></div>
+              <div class="s2d s4gon"></div>
+              <div class="s2d s4gon"></div>
+              <div class="s2d s4gon"></div>
+              <div class="s2d s4gon"></div>
+              <div class="s2d s4gon"></div>
+              <div class="s2d s4gon"></div>
+              <div class="s2d s4gon"></div>
+              <div class="s2d s4gon"></div>
+              <div class="s2d s4gon"></div>
+              <div class="s2d s4gon"></div>
+              <div class="s2d s4gon"></div>
+              <div class="s2d s4gon"></div>
+              <div class="s2d s4gon"></div>
+              <div class="s2d s4gon"></div>
+              <div class="s2d s4gon"></div>
+              <div class="s2d s4gon"></div>
+              <div class="s2d s4gon"></div>
+              <div class="s2d s4gon"></div>
+              <div class="s2d s4gon"></div>
+              <div class="s2d s4gon"></div>
+              <div class="s2d s4gon"></div>
+              <div class="s2d s4gon"></div>
+              <div class="s2d s4gon"></div>
+              <div class="s2d s4gon"></div>
+              <div class="s2d s4gon"></div>
+              <div class="s2d s4gon"></div>
+              <div class="s2d s4gon"></div>
             </div>
           </div>
-          <div class="a3d">
-            <div class="s2d s5gon"></div>
-            <div class="s2d s5gon"></div>
-            <div class="s2d s5gon"></div>
-            <div class="s2d s5gon"></div>
-            <div class="s2d s5gon"></div>
-            <div class="s2d s5gon"></div>
-            <div class="s2d s5gon"></div>
-            <div class="s2d s5gon"></div>
-            <div class="s2d s5gon"></div>
-            <div class="s2d s5gon"></div>
-            <div class="s2d s5gon"></div>
-            <div class="s2d s5gon"></div>
-            <div class="s2d s3gon"></div>
-            <div class="s2d s3gon"></div>
-            <div class="s2d s3gon"></div>
-            <div class="s2d s3gon"></div>
-            <div class="s2d s3gon"></div>
-            <div class="s2d s3gon"></div>
-            <div class="s2d s3gon"></div>
-            <div class="s2d s3gon"></div>
-            <div class="s2d s3gon"></div>
-            <div class="s2d s3gon"></div>
-            <div class="s2d s3gon"></div>
-            <div class="s2d s3gon"></div>
-            <div class="s2d s3gon"></div>
-            <div class="s2d s3gon"></div>
-            <div class="s2d s3gon"></div>
-            <div class="s2d s3gon"></div>
-            <div class="s2d s3gon"></div>
-            <div class="s2d s3gon"></div>
-            <div class="s2d s3gon"></div>
-            <div class="s2d s3gon"></div>
-            <div class="s2d s4gon"></div>
-            <div class="s2d s4gon"></div>
-            <div class="s2d s4gon"></div>
-            <div class="s2d s4gon"></div>
-            <div class="s2d s4gon"></div>
-            <div class="s2d s4gon"></div>
-            <div class="s2d s4gon"></div>
-            <div class="s2d s4gon"></div>
-            <div class="s2d s4gon"></div>
-            <div class="s2d s4gon"></div>
-            <div class="s2d s4gon"></div>
-            <div class="s2d s4gon"></div>
-            <div class="s2d s4gon"></div>
-            <div class="s2d s4gon"></div>
-            <div class="s2d s4gon"></div>
-            <div class="s2d s4gon"></div>
-            <div class="s2d s4gon"></div>
-            <div class="s2d s4gon"></div>
-            <div class="s2d s4gon"></div>
-            <div class="s2d s4gon"></div>
-            <div class="s2d s4gon"></div>
-            <div class="s2d s4gon"></div>
-            <div class="s2d s4gon"></div>
-            <div class="s2d s4gon"></div>
-            <div class="s2d s4gon"></div>
-            <div class="s2d s4gon"></div>
-            <div class="s2d s4gon"></div>
-            <div class="s2d s4gon"></div>
-            <div class="s2d s4gon"></div>
-            <div class="s2d s4gon"></div>
+
+          <div data-component="VideoPlayer">
+            <div class="enable-video-player">
+              <video data-able-player="" id="video1" data-youtube-id="NINogq4BS68" preload="auto" data-skin="2020" data-root-path="./node_modules/enable-a11y/js/libs/ableplayer/">
+              <track kind="captions"
+                src="vtt/dialog-document__html5.vtt"
+                srclang="en"
+                label="English">
+              <track kind="descriptions"
+                src="vtt/dialog-document__html5--desc.vtt"
+                srclang="en"
+                label="English Audio Descriptions">
+            </video>
+            </div>
           </div>
-        </div>
 
 
-  </main>
+    </main>
 
-  <script type="application/json" id="global-props">
-    {
-      "closeButtonAlt": "Close Button"
-    }
-  </script>
-</body>
+    <script type="application/json" id="global-props">
+      {
+        "closeButtonAlt": "Close Button"
+      }
+    </script>
+  </body>
 
 </html>

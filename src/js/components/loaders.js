@@ -19,5 +19,6 @@ components.Listbox = require('components/Listbox/loader.js').default;
 components.Slider = require('components/Slider/loader.js').default;
 components.PaginationTable = require('components/PaginationTable/loader.js').default;
 components.PauseAnimControl = require('components/PauseAnimControl/loader.js').default;
+components.VideoPlayer = require('components/VideoPlayer/loader.js').default;
 
 export default components;
