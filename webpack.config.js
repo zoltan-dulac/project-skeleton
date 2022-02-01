@@ -64,7 +64,9 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         { from: './src/icons/', to: './icons/' },
-        { from: './src/images/', to: './images/' }
+        { from: './src/images/', to: './images/' },
+        { from: './src/vtt/', to: './vtt/' },
+        { from: './node_modules/enable-a11y/js/libs/ableplayer', to: './ableplayer'}
       ]
     }),
     new MiniCssExtractPlugin({
@@ -230,7 +232,8 @@ module.exports = {
       '~glider-js': path.resolve(__dirname, 'node_modules/glider-js'),
       '../libs/accessibility-js-routines/dist/accessibility.module.js': path.resolve(__dirname, 'node_modules/accessibility-js-routines/dist/accessibility.module'),
       '../../libs/glider-js/glider.js': path.resolve(__dirname, 'node_modules/glider-js/glider'),
-      '../../libs/jquery/dist/jquery.min.js': path.resolve(__dirname, 'node_modules/jquery/src/jquery')
+      '../../libs/jquery/dist/jquery.min.js': path.resolve(__dirname, 'node_modules/jquery/src/jquery'),
+      '../libs/ableplayer/thirdparty/js.cookie.js': path.resolve(__dirname, 'node_modules/js-cookie/dist/js.cookie')
     },
     // polyfill for fallbacks
     fallback: {
