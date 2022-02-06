@@ -12,6 +12,286 @@
     <main>
 
 
+      <!-- MAIN MENU TEMPLATES -->
+      <template id="flyout__root">
+        <ul class="enable-flyout__list">
+          ${html:content}
+        </ul>
+      </template>
+
+      <template id="flyout__submenu">
+        <ul class="enable-flyout__list  enable-flyout__list--photo-layout">
+          <li class="enable-flyout__menu-item enable-flyout__menu-item--close">
+            <button class="enable-flyout__close-level-button">
+              Go Back
+            </button>
+          </li>
+          
+          ${html:content}
+          </ul>
+      </template>
+
+      <template id="flyout__button">
+        <li class="enable-flyout__menu-item">
+          <!-- Begin section ${sectionName} -->
+          <button aria-expanded="false" aria-controls="${id}" class="enable-flyout__open-level-button">
+            ${sectionName}
+          </button>
+          <div id="${id}" aria-label="${sectionName}" role="group"
+            class="enable-flyout enable-flyout__level enable-flyout__dropdown">
+            <button class="enable-flyout__hamburger-icon-facade">
+              <span class="sr-only">
+                close mobile flyout
+              </span>
+            </button>
+            <ul class="enable-flyout__list my-custom-list__layout">
+              <li class="enable-flyout__menu-item enable-flyout__menu-item--close">
+               <button 
+                class="enable-flyout__close-level-button">
+                Go Back 
+               </button>
+              </li>
+            
+               <!-- Start menu items for section ${sectionName} -->
+               ${html:content}
+            </ul>
+          </div>
+        </li>
+      </template>
+
+      <template id="flyout__home">
+        <li class="enable-flyout__menu-item">
+          <a href="index.php" class="enable-flyout__link enable-flyout__with-home-icon mobile-and-tablet">
+              Home
+          </a>
+        </li>
+      </template>
+
+      <template id="flyout__link">
+        <li class="enable-flyout__menu-item">
+          <a href="${url}"
+            class="enable-flyout__link">
+            <picture>
+              <source srcset="images/main-menu/${thumbnailSrcPrefix}.webp" type="image/webp">
+              <img src="${thumbnailSrcPrefix}.png" alt="${alt}" class="enable-flyout__link-image" />
+            </picture>
+            ${label}
+          </a>
+        </li>
+      </template>
+
+      <template id="flyout__link--no-image">
+        <li class="enable-flyout__menu-item">
+          <a href="${url}"
+            class="enable-flyout__link">
+            ${label}
+          </a>
+        </li>
+      </template>
+
+      <template id="flyout__link--with-icon">
+        <li class="enable-flyout__menu-item">
+          <a href="${url}"
+            class="enable-flyout__link">
+            <img alt="${alt}" src="${src}" >
+            ${label}
+          </a>
+        </li>
+      </template>
+
+      <template id="flyout__heading">
+        <div class="enable-flyout__level-heading">${label}</div>
+      </template>
+
+      <template id="flyout__subsection">
+        <li class="enable-flyout__menu-item">
+          <!-- Begin section ${sectionName} -->
+          <button aria-expanded="false" aria-controls="${id}-section"
+            class="enable-flyout__open-level-button">
+            ${sectionName}
+          </button>
+          <div class="enable-flyout__level-heading">${sectionName}</div>
+            <div id="${id}-section" aria-label="${sectionName}" role="group"
+              class="enable-flyout enable-flyout__level enable-flyout__dropdown">
+            <button class="enable-flyout__hamburger-icon-facade">
+              <span class="sr-only">
+                close mobile flyout
+              </span>
+            </button>
+            <ul class="enable-flyout__list enable-flyout__list--photo-layout">
+              <li class="enable-flyout__menu-item enable-flyout__menu-item--close">
+                <button class="enable-flyout__close-level-button">
+                  Go Back
+                </button>
+              </li>
+              
+              <!-- Start menu items for section ${sectionName} -->
+              ${html:content}
+            </ul>
+          </div>
+        </li>
+      </template>
+
+      <template id="flyout__container">
+        <nav class="site__nav enable-flyout__container" aria-label="main">
+          <button class="enable-flyout__open-menu-button" aria-expanded="false" aria-controls="mobile-menu">
+
+                  <!-- This is the hamburger menu icon -->
+
+                  <span aria-label="main menu" class="enable-flyout__hamburger-icon" role="img">
+                      <span>
+                      </span>
+                      <span>
+                      </span>
+                      <span>
+                      </span>
+                      <span>
+                      </span>
+                  </span>
+              </button>
+          <div id="mobile-menu" class="enable-flyout enable-flyout__top-level enable-flyout__level">
+            <button class="enable-flyout__hamburger-icon-facade">
+                    <span class="sr-only">
+                        close mobile flyout
+                    </span>
+                </button>
+
+            <!-- Here is where the content is placed -->
+            ${html:content}
+
+          </div>
+        </nav>
+        <span class="enable-flyout__overlay-screen">
+        </span>
+      </template>
+
+      <!-- MAIN MENU ROOT -->
+
+      <!-- Here is the main menu -->
+      <div class="top-block">e</div>
+      <div data-component="FlyoutMenu" data-props-id="flyout-props">
+
+      </div>
+
+      <script id="flyout-props" type="application/json">
+        {
+          "content": [{
+            "id": "flyout__container",
+            "content": [{
+              "id": "flyout__root",
+              "content": [{
+                "id": "flyout__home"
+              }, {
+                "id": "flyout__button",
+                "props": {
+                  "id": "about-me",
+                  "sectionName": "About Me"
+                },
+                "content": [{
+                  "id": "flyout__link--no-image",
+                  "props": {
+                    "url": "/blog/about-me/",
+                    "label": "Who is Zoltan"
+                  }
+                }, {
+                  "id": "flyout__link--no-image",
+                  "props": {
+                    "url": "/blog/current-projects/",
+                    "label": "The Twitterz"
+                  }
+                }, {
+                  "id": "flyout__link--no-image",
+                  "props": {
+                    "url": "/blog/the-infamous-zoltan-faq",
+                    "label": "The Infamous Zoltan FAQ"
+                  }
+                }]
+              }, {
+                "id": "flyout__button",
+                "props": {
+                  "id": "content",
+                  "sectionName": "Projects"
+                },
+                "content": [{
+                  "id": "flyout__button",
+                  "props": {
+                    "id": "projects",
+                    "sectionName": "Open Source Libaries"
+                  },
+                  "content": [{
+                    "id": "flyout__link--no-image",
+                    "props": {
+                      "url": "https://www.useragentman.com/blog/the-css3-font-converter/",
+                      "label": "CSS Font Converter"
+                    }
+                  }, {
+                    "id": "flyout__link--no-image",
+                    "props": {
+                      "url": "https://www.useragentman.com/enable",
+                      "label": "Enable"
+                    }
+                  }]
+                }, {
+                  "id": "flyout__button",
+                  "props": {
+                    "id": "tools",
+                    "sectionName": "Online Development Tools"
+                  }
+                }]
+              }, {
+                "id": "flyout__button",
+                "props": {
+                  "id": "recent-posts",
+                  "sectionName": "Recent Posts",
+                  "content": [
+
+                  ]
+                }
+              }, {
+                "id": "flyout__button",
+                "props": {
+                  "id": "popular-posts",
+                  "sectionName": "Popular Posts",
+                  "content": [
+
+                  ]
+                }
+              }, {
+                "id": "flyout__button",
+                "props": {
+                  "id": "contact",
+                  "sectionName": "Contact Me"
+                },
+                "content": [{
+                  "id": "flyout__link--with-icon",
+                  "props": {
+                    "alt": "Twitter: ",
+                    "src": "https://www.useragentman.com/images/logos/twitter.png",
+                    "label": "@zoltandulac"
+                  }
+                }, {
+                  "id": "flyout__link--with-icon",
+                  "props": {
+                    "alt": "Instagram: ",
+                    "src": "https://www.useragentman.com/images/logos/instagram.png",
+                    "label": "@zoltandulac"
+                  }
+                }, {
+                  "id": "flyout__link--with-icon",
+                  "props": {
+                    "alt": "",
+                    "src": "https://www.useragentman.com/images/logos/email.png",
+                    "label": "email me"
+                  }
+                }]
+              }]
+            }]
+          }]
+        }
+      </script>
+
+
+
       <div id="my-switch" data-component="Switch" data-props-id="switch-props">
 
       </div>
